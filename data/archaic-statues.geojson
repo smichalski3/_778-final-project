@@ -1,0 +1,102 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+       
+        {
+            "type": "Feature",
+            "properties": {
+                "Statue Name": "The Lady of Auxerre",
+                "Created in": "Crete",
+                "Dated to": "640-630 BCE",
+                "Artist": "Unknown",
+                "Material": "Limestone",
+                "image":"img/greek statue pics/lady-auxerre.jpg"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.53,
+                    35.35
+                ]
+            }
+        },
+     
+        {
+            "type": "Feature",
+            "properties": {
+                "Statue Name": "The Dying Warrior",
+                "Created in": "Aegina",
+                "Dated to": "480 BCE",
+                "Artist": "Unknown",
+                "Material": "Marble",
+                "image":"img/greek statue pics/dying-warrior-statue.jpg"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.5014,
+                    37.7409
+                ]
+            }
+        },
+    
+        {
+            "type": "Feature",
+            "properties": {
+                "Statue Name": "The Sacred Gate Dipylon Kouros",
+                "Created in": "Kerameikos",
+                "Dated to": "560 BCE",
+                "Artist": "Unknown",
+                "Material": "Marble",
+                "image":"img/greek statue pics/kouros.jpg"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.7173,
+                    37.978
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Statue Name" : "Kouros of Piombino",
+                "Created in": "Rhodes",
+                "Dated to": "5th c. BCE",
+                "Artist": "Menodotos of Tyre and Xenophon of Rhodes",
+                "Material": "Bronze",
+                "image":"img/greek statue pics/kouros-piombino.jpg"
+
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.2176,
+                    36.4341
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Statue Name" : "Kouros of Paros",
+                "Created in": "Paros",
+                "Dated to": "6th c. BCE",
+                "Artist": "Unknown",
+                "Material": "Marble",
+                "image":"img/greek statue pics/kouros-of-paros.jpg"
+
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.1515,
+                    37.0854
+                ]
+            }
+        }
+ 
+
+    ]
+}

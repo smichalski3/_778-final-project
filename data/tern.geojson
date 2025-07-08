@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departure Point",
+        "description": "This is where the Arctic Tern begins its migration in Alaska."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-149.9003, 61.2181]
+      }
+    }
+  ]
+}
+

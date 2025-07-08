@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Arctic Tern Migration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css">
+  <link rel="stylesheet" href="lib/scrollmap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="scroll-container">
+    <!-- Scene 1: Title background -->
+    <div class="background-item no-margin title-background" 
+    style="background-image: url('img/background.png');" data-slide="0"></div>
+
+    <!-- Scene 1 Foreground -->
+    <div class="foreground-item slide-1">
+
+      <div class="row">
+        <div class="center">
+          <p>Welcome to the tern's world!</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="center">
+          <p>On the exterior, the Arctic tern is a relatively simple and typical bird.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="left">
+          <p class="vert-center"> 
+            They’re a “normal” size and have quite a few “normal” 
+            characteristics — they mate for life and eat small fish and crustaceans. 
+          </p>
+        </div>
+        <div class="right">
+          <img class="fit" src="img/arctic-tern.jpg">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="center">
+          However, there is much more to this bird than what meets the eye.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="center">
+          The Arctic tern has THE longest migration of any other living thing on Earth.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="center">
+          This long journey ensures that they see two summers every year 
+          and more daylight than any other creature on the planet.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scene 2: First Map Background -->
+<div class="background-item no-margin" data-slide="1">
+  <div id="firstMap" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+</div>
+
+<!-- Scene 2: First Map Foreground -->
+<div class="foreground-item map-1">
+  <div class="row">
+    <div class="center rounded">
+      <p class="header">Following the Summer Sun</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="right background-transparent rounded">
+      <p class="no-margin">To understand the brevity of this migration, we'll follow a single tracked bird.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="right background-transparent rounded">
+      <p class="no-margin">Their migration starts here in Alaska.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="right background-transparent rounded">
+      <p class="no-margin">Filler text.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 3: Second Map Background -->
+<div class="background-item no-margin" data-slide="2">
+  <div id="secondMap" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+</div>
+
+<!-- Scene 3: Second Map Foreground -->
+<div class="foreground-item map-2">
+  <div class="row">
+    <div class="center">
+      <p>Filler text about the next leg of the migration.</p>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Scene 4: Title background -->
+    <div class="background-item no-margin title-background" 
+    style="background-image: url('img/regular-blue.jpg');" data-slide="0"></div>
+
+    <!-- Scene 4 Foreground -->
+    <div class="foreground-item slide-1">
+
+      <div class="row">
+        <div class="center">
+          <p>Filler text</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!-- JS Libraries -->
+  <script src="lib/jquery-3.5.1.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/leaflet/leaflet.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+  <script src="lib/scrollmap.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
