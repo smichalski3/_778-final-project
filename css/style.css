@@ -1,17 +1,80 @@
-@font-face {
-  font-family: aquiline;
-  src: url(../fonts/AquilineTwo.ttf);
+/* declaring fonts*/ 
+
+@font-face { 
+    font-family: alpine;
+    src: url(fonts/HighAlpine.otf);
 }
 
 @font-face {
-  font-family: gary;
-  src: url(../fonts/Gar-A-MondTall.ttf);
+    font-family: bell;
+    src: url(fonts/BellTopoSans-Regular.otf);
 }
 
-@font-face {
+
+.title {
+  color: #728fb8;
   font-family: alpine;
-  src: url(../fonts/HighAlpine.otf);
+  text-align: center;
+  padding: 2rem;
 }
+
+.title-background {
+  background-size: cover;
+}
+
+.author {
+  font-family: bell;
+  color: rgb(184, 184, 184);
+}
+
+/* arrow start */
+#scrollPrompt {
+  position: fixed;
+  top: 85%;
+  right: 30px; /* distance from the right edge */
+  left: auto;  /* remove or override centered position */
+  transform: none; /* remove the horizontal centering */
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: bell;
+  color: #444;
+  z-index: 9999;
+  animation: fadein 1s ease-in-out;
+}
+
+
+.arrow {
+  font-size: 2rem;
+  margin-top: 5px;
+  animation: bounce 1s infinite;
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Fade out animation (if you want it to auto-disappear) */
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+#migrationChart {
+  max-width: 700px;
+  margin: 2rem auto;
+  display: block;
+}
+
+
+
+
+
+
+
+
 
 
 body {
@@ -30,21 +93,6 @@ body {
   width: 100%;
 }
 
-.title {
-  color: #535353;
-  font-family: alpine;
-  text-align: center;
-  padding: 2rem;
-}
-
-.title-background {
-  background-size: cover;
-}
-
-.author {
-  font-family: cambria, serif;
-  color: rgb(187, 135, 168);
-}
 
 a {
   color: rgb(144, 64, 108);

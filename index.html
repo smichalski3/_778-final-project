@@ -15,124 +15,163 @@
 
 <body>
 
-  <div class="scroll-container">
-    <!-- Scene 1: Title background -->
-    <div class="background-item no-margin title-background" 
-    style="background-image: url('img/background.png');" data-slide="0"></div>
-
-    <!-- Scene 1 Foreground -->
-    <div class="foreground-item slide-1">
-
-      <div class="row">
-        <div class="center">
-          <p>Welcome to the tern's world!</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="center">
-          <p>On the exterior, the Arctic tern is a relatively simple and typical bird.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="left">
-          <p class="vert-center"> 
-            They’re a “normal” size and have quite a few “normal” 
-            characteristics — they mate for life and eat small fish and crustaceans. 
-          </p>
-        </div>
-        <div class="right">
-          <img class="fit" src="img/arctic-tern.jpg">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="center">
-          However, there is much more to this bird than what meets the eye.
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="center">
-          The Arctic tern has THE longest migration of any other living thing on Earth.
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="center">
-          This long journey ensures that they see two summers every year 
-          and more daylight than any other creature on the planet.
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Scene 2: First Map Background -->
-<div class="background-item no-margin" data-slide="1">
-  <div id="firstMap" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-</div>
-
-<!-- Scene 2: First Map Foreground -->
-<div class="foreground-item map-1">
-  <div class="row">
-    <div class="center rounded">
-      <p class="header">Following the Summer Sun</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="right background-transparent rounded">
-      <p class="no-margin">To understand the brevity of this migration, we'll follow a single tracked bird.</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="right background-transparent rounded">
-      <p class="no-margin">Their migration starts here in Alaska.</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="right background-transparent rounded">
-      <p class="no-margin">Filler text.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Scene 3: Second Map Background -->
-<div class="background-item no-margin" data-slide="2">
-  <div id="secondMap" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-</div>
-
-<!-- Scene 3: Second Map Foreground -->
-<div class="foreground-item map-2">
-  <div class="row">
-    <div class="center">
-      <p>Filler text about the next leg of the migration.</p>
-    </div>
-  </div>
+<div id="scrollPrompt">
+  <p>Scroll to begin</p>
+  <div class="arrow bounce">&#x2193;</div>
 </div>
 
 
+<div class="content">
 
-    <!-- Scene 4: Title background -->
-    <div class="background-item no-margin title-background" 
-    style="background-image: url('img/regular-blue.jpg');" data-slide="0"></div>
-
-    <!-- Scene 4 Foreground -->
-    <div class="foreground-item slide-1">
-
-      <div class="row">
-        <div class="center">
-          <p>Filler text</p>
+    <div class="row no-margin title-background" style="background-image:url(img/slide-0.png)">
+            <div class="center title">
+                <!--title text-->
+                <h1>Pole to Pole</h1>
+                <!--subtitle or author-->
+                <p class="author">A climate sentinel's journey</p>
+            </div>
         </div>
-      </div>
 
+    
+    <div class="scroll-container">
+
+        <div class="background-item no-margin">
+            <img src="img/background.png" data-slide="0">
+        </div>
+
+        <div class="foreground-item slide-1">
+
+            <div class="row">
+                <div class="center">
+                    <p>Welcome to the Arctic tern's world!</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="left">
+                <p class="vert-center">
+                  On the exterior, the tern is a relatively simple and typical bird.
+                </p>
+              </div>
+              <div class="right">
+                <img class="fit" src="img/tern.png">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="left">
+                <p class="vert-center">
+                  They have quite a few "normal" characteristics - they mate for life 
+                  and eat small fish and crustaceans. Add fish to image. 
+                </p>
+              </div>
+              <div class="right">
+                <img class="fit" src="img/tern.png">
+              </div>
+            </div>
+
+            <div class="row">
+               <div class="center">
+                  <p class="vert-center"> 
+                    The Arctic tern is <b>far</b> from normal. 
+                  </p>
+               </div>
+            </div>             
+            
+
+            <div class="row">
+                <div class="center">
+                    <img class="fit" src="img/arctic-tern.jpg">
+                    <p class="no-margin center slide-caption"><i>The Arctic tern has THE longest migration of any other living thing on Earth.Add migration graphic.</i></p>
+
+                </div>
+            </div>
+
+            <div class="row">
+               <div class="center">
+                   <p class="vert-center">
+                      This long journey ensures that they see two summers every year 
+                      and more daylight than any other creature on the planet.
+                   </p>
+              </div>
+            </div>                
+
+        </div>
+
+      <!-- Scene: Migration Distance Chart -->
+            <div class="foreground-item slide-1">
+              <div class="row center">
+                <h3>How Far Do Animals Migrate?</h3>
+                  <p>This chart compares the annual migration distances of the Arctic Tern and other travelers.</p>
+                  <canvas id="migrationChart" width="600" height="400"></canvas>
+              </div>
+            </div>
     </div>
 
+    <div class="scroll-container"> 
+          <!-- Scene 2: Background Maps -->
+        <div class="background-item no-margin">
+            <div id="firstMap" data-slide="0" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="secondMap" data-slide="2" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="thirdMap" data-slide="4" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
 
-  </div>
+        </div>
+
+        <!-- Scene 2: First Map Foreground -->
+        <div class="foreground-item no-event">
+          <div class="row">
+            <div class="center rounded">
+              <p class="header">Following the Summer Sun</p>
+            </div>
+          </div>
+
+          <div class="row">
+             <div class="right background-transparent rounded">
+              <p class="no-margin">To understand the brevity of this migration, we'll follow a single tracked bird.</p>
+            </div>
+         </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+              <p class="no-margin">Their migration starts here in Alaska.</p>
+            </div>
+          </div>
+
+         <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">Filler text.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">Filler text.</p>
+             </div>
+          </div>
+
+      </div> <!--foreground div-->
+
+    </div> <!--scroll container div-->
+
+    <div class="scroll-container"> 
+
+       <div class="background-item no-margin">
+            <img src="img/regular-blue.jpg" data-slide="0">
+        </div>
+
+        <div class="foreground-item slide-1">
+
+            <div class="row">
+                <div class="center">
+                    <p>Filler text</p>
+                </div>
+            </div>
+        </div>
+    </div> <!--scroll container div-->
+
+  </div> <!--content div-->
+
 
   <!-- JS Libraries -->
   <script src="lib/jquery-3.5.1.js"></script>
@@ -140,6 +179,7 @@
   <script src="lib/leaflet/leaflet.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
   <script src="lib/scrollmap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

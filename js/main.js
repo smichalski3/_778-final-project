@@ -10,9 +10,17 @@
 
 
 
-// Initialize the maps
-
+// Initialize maps
 var firstMap = L.map('firstMap', {
+  center: [0, 0],  // Center of the world
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var secondMap = L.map('secondMap', {
   center: [64, -150],  // Center on interior Alaska
   zoom: 4,
   maxZoom: 18,
@@ -25,7 +33,7 @@ var firstMap = L.map('firstMap', {
   ],
 });
 
-var secondMap = L.map('secondMap', {
+var thirdMap = L.map('thirdMap', {
   center: [61.2176, -149.8997],  // Anchorage, Alaska
   zoom: 10,                      // Good level for city detail
   maxZoom: 18,
@@ -48,6 +56,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9f
   maxZoom: 18,
 }).addTo(secondMap);
 
+L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
+  maxZoom: 18,
+}).addTo(thirdMap);
+
 // Load GeoJSON point onto secondMap
 fetch('data/tern.geojson')
   .then(response => response.json())
@@ -68,11 +80,64 @@ fetch('data/tern.geojson')
           layer.bindPopup(`<strong>${feature.properties.name}</strong><br>${feature.properties.description || ''}`);
         }
       }
-    }).addTo(secondMap);
+    }).addTo(firstMap);
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
 
 
+/* arrow controls */
+window.addEventListener("scroll", function () {
+  const prompt = document.getElementById("scrollPrompt");
+  if (prompt) {
+    prompt.style.transition = "opacity 0.5s ease";
+    prompt.style.opacity = "0";
+    setTimeout(() => prompt.style.display = "none", 500);
+  }
+});
+
+
+// Chart.js: Migration distances by species
+document.addEventListener('DOMContentLoaded', function () {
+  const chartCanvas = document.getElementById('migrationChart');
+  if (!chartCanvas) return;  // Exit if chart container doesn't exist
+
+  const ctx = chartCanvas.getContext('2d');
+
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Arctic Tern', 'Wildebeest', 'Monarch Butterfly', 'Salmon', 'Gray Whale'],
+      datasets: [{
+        label: 'Annual Migration Distance (miles)',
+        data: [44000, 1000, 3000, 2500, 10000],
+        backgroundColor: 'rgba(93, 173, 226, 0.6)',
+        borderColor: 'rgba(93, 173, 226, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.dataset.label}: ${context.formattedValue} mi`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Miles'
+          }
+        }
+      }
+    }
+  });
+});
 
 
 
