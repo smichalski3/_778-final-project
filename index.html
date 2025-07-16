@@ -112,10 +112,13 @@
     <div class="scroll-container"> 
           <!-- Scene 2: Background Maps -->
         <div class="background-item no-margin">
-            <div id="firstMap" data-slide="0" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-            <div id="secondMap" data-slide="2" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-            <div id="thirdMap" data-slide="4" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-
+            <div id="blankMap" data-slide="0" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="breedingMap" data-slide="2" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="pointsMap" data-slide="4" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="climateMap" data-slide="6" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="nonBreedingMap" data-slide="8" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="iceMap" data-slide="10" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+            <div id="points2Map" data-slide="12" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
         </div>
 
         <!-- Scene 2: First Map Foreground -->
@@ -128,27 +131,81 @@
 
           <div class="row">
              <div class="right background-transparent rounded">
-              <p class="no-margin">To understand the brevity of this migration, we'll follow a single tracked bird.</p>
+              <p class="no-margin">The Arctic tern migrates 44,000 miles roundtrip every year.</p>
             </div>
          </div>
 
           <div class="row">
             <div class="right background-transparent rounded">
-              <p class="no-margin">Their migration starts here in Alaska.</p>
+              <p class="no-margin">From May to mid-August, they breed near the Arctic Circle in 
+                upper Canada, Greenland, and Iceland. 
+              </p>
             </div>
           </div>
 
          <div class="row">
             <div class="right background-transparent rounded">
-             <p class="no-margin">Filler text.</p>
+             <p class="no-margin">Come August, they start their migration south towards Antarctica.</p>
              </div>
           </div>
 
           <div class="row">
             <div class="right background-transparent rounded">
-             <p class="no-margin">Filler text.</p>
+             <p class="no-margin">These points show their southward journey.</p>
              </div>
           </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">This endeavor will take them through every climate zone on Earth.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">When they reach the tip of South America and Antarctica in November, 
+              they rest here until they start their migration north.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">While they breed on land in the northern hemisphere,
+              much of their non-breeding range is located on sea ice.
+                </p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">The ability to feed in their Antarctic wintering is dependent on sea ice cover.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">The terns follow a  convoluted course in order to take advantage of prevailing wind.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">These points show the course they take northward.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">These journies require the terns to navigate uncertain wind speeds and patterns.</p>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="right background-transparent rounded">
+             <p class="no-margin">This map shows real-time wind conditions that terns are currently navigating.</p>
+             </div>
+          </div>
+
 
       </div> <!--foreground div-->
 
@@ -174,13 +231,13 @@
 
 
   <!-- JS Libraries -->
+   <script src="lib/bootstrap.min.js"></script>
+   <script src="lib/leaflet/leaflet.js"></script>
   <script src="lib/jquery-3.5.1.js"></script>
-  <script src="lib/bootstrap.min.js"></script>
-  <script src="lib/leaflet/leaflet.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
-  <script src="lib/scrollmap.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/main.js"></script>
+  <script src="lib/scrollmap.js"></script>
 </body>
 </html>
 

@@ -1,18 +1,6 @@
-
-// Initialize Mapbox GL JS map
-// mapboxgl.accessToken = 'pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ';
-// const mapboxMap = new mapboxgl.Map({
-  // container: 'background-map',
-  // style: 'mapbox://styles/mapbox/light-v11',
-  // center: [-45, 75],
-  // zoom: 2
-// });
-
-
-
-// Initialize maps
-var firstMap = L.map('firstMap', {
-  center: [0, 0],  // Center of the world
+// Define all your maps first
+var blankMap = L.map('blankMap', {
+  center: [0, 0],
   zoom: 2,
   maxZoom: 18,
   minZoom: 1,
@@ -20,70 +8,112 @@ var firstMap = L.map('firstMap', {
   zoomControl: true
 });
 
-var secondMap = L.map('secondMap', {
-  center: [64, -150],  // Center on interior Alaska
-  zoom: 4,
+var breedingMap = L.map('breedingMap', {
+  center: [0, 0],
+  zoom: 2,
   maxZoom: 18,
-  minZoom: 3,
+  minZoom: 1,
   scrollWheelZoom: false,
-  zoomControl: true,
-  maxBounds: [
-      [72, -130],  // North-East corner
-      [54, -170]   // South-West corner
-  ],
+  zoomControl: true
 });
 
-var thirdMap = L.map('thirdMap', {
-  center: [61.2176, -149.8997],  // Anchorage, Alaska
-  zoom: 10,                      // Good level for city detail
+var pointsMap = L.map('pointsMap', {
+  center: [0, 0],
+  zoom: 2,
   maxZoom: 18,
-  minZoom: 4,
+  minZoom: 1,
   scrollWheelZoom: false,
-  zoomControl: true,
-  maxBounds: [
-    [62.5, -148],  // North-East boundary
-    [60, -152]     // South-West boundary
-  ],
+  zoomControl: true
 });
 
-
-// Add base tilelayer to the maps
-L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
+var climateMap = L.map('climateMap', {
+  center: [0, 0],
+  zoom: 2,
   maxZoom: 18,
-}).addTo(firstMap);
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
 
-L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
+var nonBreedingMap = L.map('nonBreedingMap', {
+  center: [0, 0],
+  zoom: 2,
   maxZoom: 18,
-}).addTo(secondMap);
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
 
-L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
+var iceMap = L.map('iceMap', {
+  center: [0, 0],
+  zoom: 2,
   maxZoom: 18,
-}).addTo(thirdMap);
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
 
-// Load GeoJSON point onto secondMap
-fetch('data/tern.geojson')
-  .then(response => response.json())
-  .then(data => {
-    L.geoJSON(data, {
-      pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: "#ff7800",
-          color: "#000",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.8
-        });
-      },
-      onEachFeature: function (feature, layer) {
-        if (feature.properties && feature.properties.name) {
-          layer.bindPopup(`<strong>${feature.properties.name}</strong><br>${feature.properties.description || ''}`);
+var points2Map = L.map('points2Map', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+// Add base tile layers
+const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map];
+tileMaps.forEach(function(map) {
+  L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
+    maxZoom: 18,
+  }).addTo(map);
+});
+
+// Reusable data loader function for Tern project
+function getData(map, url, iconUrl) {
+  fetch(url)
+    .then(response => response.json())
+    .then(json => {
+      L.geoJson(json, {
+        pointToLayer: function(feature, latlng) {
+          if (iconUrl) {
+            var customIcon = L.icon({
+              iconUrl: iconUrl,
+              iconSize: [30, 30],
+              iconAnchor: [15, 15]
+            });
+            return L.marker(latlng, { icon: customIcon });
+          } else {
+            return L.circleMarker(latlng, {
+              radius: 6,
+              fillColor: "#ff7800",
+              color: "#000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.8
+            });
+          }
+        },
+        onEachFeature: function(feature, layer) {
+          let popupContent = "";
+          for (let property in feature.properties) {
+            popupContent += `<p><strong>${property}</strong>: ${feature.properties[property]}</p>`;
+          }
+          layer.bindPopup(popupContent);
         }
-      }
-    }).addTo(firstMap);
-  })
-  .catch(error => console.error('Error loading GeoJSON:', error));
+      }).addTo(map);
+    })
+    .catch(error => console.error(`Error loading ${url}:`, error));
+}
 
+// Load data layers onto the maps
+getData(breedingMap, 'data/breeding-range.geojson');
+getData(pointsMap, 'data/tern-points-down.geojson');
+getData(climateMap, 'data/climate-zones.geojson');
+getData(nonBreedingMap, 'data/non-breeding-range.geojson');
+getData(iceMap, 'data/tern-lines.geojson');
+getData(points2Map, 'data/tern-points-up.geojson');
 
 /* arrow controls */
 window.addEventListener("scroll", function () {
@@ -94,7 +124,6 @@ window.addEventListener("scroll", function () {
     setTimeout(() => prompt.style.display = "none", 500);
   }
 });
-
 
 // Chart.js: Migration distances by species
 document.addEventListener('DOMContentLoaded', function () {
@@ -138,11 +167,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
-
-
-
-
-
-
-
