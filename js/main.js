@@ -70,6 +70,31 @@ tileMaps.forEach(function(map) {
   }).addTo(map);
 });
 
+// Load and style the breeding-range.geojson as a polygon layer
+fetch('data/breeding-range.geojson')
+  .then(response => response.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: function (feature) {
+        return {
+          color: "#1f78b4",          // outline color
+          weight: 2,                 // outline thickness
+          fillColor: "#a6cee3",      // fill color
+          fillOpacity: 1           // fill transparency
+        };
+      },
+      onEachFeature: function (feature, layer) {
+        let popupContent = "";
+        for (let prop in feature.properties) {
+          popupContent += `<p><strong>${prop}</strong>: ${feature.properties[prop]}</p>`;
+        }
+        layer.bindPopup(popupContent);
+      }
+    }).addTo(breedingMap);
+  })
+  .catch(error => console.error('Error loading breeding-range.geojson:', error));
+
+
 // Reusable data loader function for Tern project
 function getData(map, url, iconUrl) {
   fetch(url)
