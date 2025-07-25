@@ -70,38 +70,81 @@ tileMaps.forEach(function(map) {
   }).addTo(map);
 });
 
-// Load and style the breeding-range.geojson as a polygon layer
-fetch('data/breeding-range.geojson')
-  .then(response => response.json())
-  .then(data => {
-    L.geoJSON(data, {
-      style: function (feature) {
-        return {
-          color: "#1f78b4",          // outline color
-          weight: 2,                 // outline thickness
-          fillColor: "#a6cee3",      // fill color
-          fillOpacity: 1           // fill transparency
-        };
-      },
-      onEachFeature: function (feature, layer) {
-        let popupContent = "";
-        for (let prop in feature.properties) {
-          popupContent += `<p><strong>${prop}</strong>: ${feature.properties[prop]}</p>`;
-        }
-        layer.bindPopup(popupContent);
-      }
-    }).addTo(breedingMap);
-  })
-  .catch(error => console.error('Error loading breeding-range.geojson:', error));
+// tern points down styling 
+function styleTernPointsDown(feature) {
+  return {
+    radius: 4,
+    fillColor: "white",
+    color: "red",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.9
+  };
+}
 
+// climate zone polygon styling 
+function styleClimateZone(feature) {
+  const dn = feature.properties.DN;
+  const colorMap = {
+    1: '#a50026',
+    2: '#d73027',
+    3: '#f46d43',
+    4: '#fdae61',
+    5: '#fee090',
+    6: '#ffffbf',
+    7: '#e0f3f8',
+    8: '#abd9e9',
+    9: '#74add1',
+    10: '#4575b4',
+    11: '#313695',
+    12: '#800080',
+    13: '#FF00FF',
+    14: '#00FFFF',
+    15: '#008080',
+    16: '#00FF00',
+    17: '#ADFF2F',
+    18: '#FFD700',
+    19: '#FFA500',
+    20: '#FF6347',
+    21: '#CD5C5C',
+    22: '#8B0000',
+    23: '#2F4F4F',
+    24: '#708090',
+    25: '#000080',
+    26: '#191970',
+    27: '#483D8B',
+    28: '#6A5ACD',
+    29: '#7B68EE',
+    30: '#9370DB'
+  };
 
-// Reusable data loader function for Tern project
-function getData(map, url, iconUrl) {
+  return {
+    fillColor: colorMap[dn] || '#cccccc',
+    color: '#333',
+    weight: 1,
+    fillOpacity: 0.6
+  };
+}
+
+// tern points up styling 
+function styleTernPointsUp(feature) {
+  return {
+    radius: 4,
+    fillColor: "red",
+    color: "white",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.9
+  };
+}
+// Reusable data loader function for project (can accept style function)
+function getData(map, url, iconUrl, customStyle) {
   fetch(url)
     .then(response => response.json())
     .then(json => {
       L.geoJson(json, {
-        pointToLayer: function(feature, latlng) {
+        style: customStyle,  // ← apply style if it's passed
+        pointToLayer: function (feature, latlng) {
           if (iconUrl) {
             var customIcon = L.icon({
               iconUrl: iconUrl,
@@ -120,7 +163,7 @@ function getData(map, url, iconUrl) {
             });
           }
         },
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function (feature, layer) {
           let popupContent = "";
           for (let property in feature.properties) {
             popupContent += `<p><strong>${property}</strong>: ${feature.properties[property]}</p>`;
@@ -133,12 +176,34 @@ function getData(map, url, iconUrl) {
 }
 
 // Load data layers onto the maps
-getData(breedingMap, 'data/breeding-range.geojson');
-getData(pointsMap, 'data/tern-points-down.geojson');
-getData(climateMap, 'data/climate-zones.geojson');
-getData(nonBreedingMap, 'data/non-breeding-range.geojson');
+// style breeding range layer
+getData(breedingMap, 'data/breeding-range.geojson', null, {
+  color: "#1f78b4",          // outline color
+  weight: 2,                 // outline thickness
+  fillColor: "#444",      // fill color
+  fillOpacity: 1           // fill transparency
+});
+
+// get first points layer
+getData(pointsMap, 'data/tern-points-down.geojson', null, styleTernPointsDown);
+
+// get climate zone data + style 
+getData(climateMap, 'data/climate-zones.geojson', null, styleClimateZone);
+
+// style non breeding range layer
+getData(nonBreedingMap, 'data/non-breeding-range.geojson', null, {
+  color: "#1f78b4",          // outline color
+  weight: 2,                 // outline thickness
+  fillColor: "#444",      // fill color
+  fillOpacity: 1           // fill transparency
+});
+
+// get second points layer
+getData(points2Map, 'data/tern-points-up.geojson', null, styleTernPointsUp);
+
+
+// CHANGE THIS STYLE ONCE SEA ICE IS TRACED - Load data layers onto the maps 
 getData(iceMap, 'data/tern-lines.geojson');
-getData(points2Map, 'data/tern-points-up.geojson');
 
 /* arrow controls */
 window.addEventListener("scroll", function () {
