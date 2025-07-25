@@ -62,8 +62,17 @@ var points2Map = L.map('points2Map', {
   zoomControl: true
 });
 
+var stepMap = L.map('stepMap', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
 // Add base tile layers
-const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map];
+const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap];
 tileMaps.forEach(function(map) {
   L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
     maxZoom: 18,
@@ -201,9 +210,73 @@ getData(nonBreedingMap, 'data/non-breeding-range.geojson', null, {
 // get second points layer
 getData(points2Map, 'data/tern-points-up.geojson', null, styleTernPointsUp);
 
+// style sea ice layer 
+getData(iceMap, 'data/sea-ice-trace.geojson', null, {
+  color: "#1f78b4",          // outline color
+  weight: 2,                 // outline thickness
+  fillColor: "#444",      // fill color
+  fillOpacity: 1           // fill transparency
+});
 
-// CHANGE THIS STYLE ONCE SEA ICE IS TRACED - Load data layers onto the maps 
-getData(iceMap, 'data/tern-lines.geojson');
+
+//  Step-by-step point reveal for stepMap 
+let stepFeatures = [];
+let stepLayerGroup = L.layerGroup().addTo(stepMap);
+let stepIndex = 0;
+
+fetch('data/steps.geojson')
+  .then(response => response.json())
+  .then(data => {
+    stepFeatures = data.features;
+
+    const bounds = L.geoJSON(data).getBounds();
+    stepMap.fitBounds(bounds);
+  })
+  .catch(error => console.error("Error loading steps.geojson:", error));
+
+window.addEventListener("scroll", () => {
+  if (stepIndex < stepFeatures.length) {
+    const feature = stepFeatures[stepIndex];
+
+    const layer = L.geoJSON(feature, {
+      pointToLayer: (feature, latlng) => {
+        return L.circleMarker(latlng, {
+          radius: 6,
+          fillColor: "white",
+          color: "black",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 1
+        });
+      },
+      onEachFeature: (feature, layer) => {
+        let popupContent = "";
+        for (let key in feature.properties) {
+          popupContent += `<p><strong>${key}</strong>: ${feature.properties[key]}</p>`;
+        }
+        layer.bindPopup(popupContent);
+      }
+    });
+
+    layer.addTo(stepLayerGroup);
+    stepIndex++;
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* arrow controls */
 window.addEventListener("scroll", function () {

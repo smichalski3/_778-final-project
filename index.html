@@ -99,7 +99,7 @@
 
         </div>
 
-      <!-- Scene: Migration Distance Chart -->
+      <!-- Migration Distance Chart -->
             <div class="foreground-item slide-1">
               <div class="row center">
                 <h3>How Far Do Animals Migrate?</h3>
@@ -110,7 +110,7 @@
     </div>
 
     <div class="scroll-container"> 
-          <!-- Scene 2: Background Maps -->
+          <!-- Background Maps -->
         <div class="background-item no-margin">
             <div id="blankMap" data-slide="0" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
             <div id="breedingMap" data-slide="2" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
@@ -119,9 +119,20 @@
             <div id="nonBreedingMap" data-slide="7" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
             <div id="iceMap" data-slide="8" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
             <div id="points2Map" data-slide="9" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-        </div>
+            <div id="windyMap" data-slide="11" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;">
+              <div class="iframe-container">
+                <iframe
+                src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=in&metricTemp=°F&metricWind=mph&zoom=1&overlay=wind&product=ecmwf&level=surface&lat=41.399&lon=-122.273&message=true&disableScroll=true&disableTouch=true"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                scrolling="no">
+                </iframe>     
+              </div>
+            </div>  
+        </div> <!-- background-item no-margin div-->
 
-        <!-- Scene 2: First Map Foreground -->
+        <!-- First Map Foreground -->
         <div class="foreground-item no-event">
           <div class="row">
             <div class="center rounded">
@@ -212,27 +223,46 @@
     </div> <!--scroll container div-->
 
     <div class="scroll-container"> 
-
        <div class="background-item no-margin">
             <img src="img/regular-blue.jpg" data-slide="0">
         </div>
 
         <div class="foreground-item slide-1">
-
             <div class="row">
                 <div class="center">
-                    <p>Filler text</p>
+                    <p>To understand this migration, we'll follow the journey of single bird.</p>
                 </div>
             </div>
         </div>
     </div> <!--scroll container div-->
 
+    <div class="scroll-container">
+      <div class="background-item no-margin">
+        <div id="stepMap" data-slide="0" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
+      </div>
+    </div>
+
+    <div class="scroll-container"> 
+       <div class="background-item no-margin">
+            <img src="img/regular-blue.jpg" data-slide="0">
+        </div>
+
+        <div class="foreground-item slide-1">
+            <div class="row">
+                <div class="center">
+                    <p>To understand this migration, we'll follow the journey of single bird.</p>
+                </div>
+            </div>
+        </div>
+    </div> <!--scroll container div-->
+
+
   </div> <!--content div-->
 
 
   <!-- JS Libraries -->
-   <script src="lib/bootstrap.min.js"></script>
-   <script src="lib/leaflet/leaflet.js"></script>
+  <script src="lib/leaflet/leaflet.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
   <script src="lib/jquery-3.5.1.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
