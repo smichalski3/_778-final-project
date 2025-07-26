@@ -119,17 +119,19 @@
             <div id="nonBreedingMap" data-slide="7" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
             <div id="iceMap" data-slide="8" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
             <div id="points2Map" data-slide="9" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;"></div>
-            <div id="windyMap" data-slide="11" class="fill vert-center no-margin" style="width: 100vw; height: 100vh;">
-              <div class="iframe-container">
+            <div id="windyMap" data-slide="11" class="fill vert-center no-margin" style="width: 100vw; height: 100vh; position: relative;">
+ 
+
+              <div class="iframe-container" id="iframeContainer">
                 <iframe
-                src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=in&metricTemp=°F&metricWind=mph&zoom=1&overlay=wind&product=ecmwf&level=surface&lat=41.399&lon=-122.273&message=true&disableScroll=true&disableTouch=true"
-                width="100%"
-                height="100%"
-                frameborder="0"
-                scrolling="no">
+                  src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=in&metricTemp=°F&metricWind=mph&zoom=1&overlay=wind&product=ecmwf&level=surface&lat=41.399&lon=-122.273&message=true&disableScroll=true"
+                  width="100%"
+                  height="100%"
+                  frameborder="0"
+                  scrolling="no">
                 </iframe>     
               </div>
-            </div>  
+            </div>
         </div> <!-- background-item no-margin div-->
 
         <!-- First Map Foreground -->

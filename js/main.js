@@ -270,14 +270,6 @@ window.addEventListener("scroll", () => {
 
 
 
-
-
-
-
-
-
-
-
 /* arrow controls */
 window.addEventListener("scroll", function () {
   const prompt = document.getElementById("scrollPrompt");
@@ -287,6 +279,58 @@ window.addEventListener("scroll", function () {
     setTimeout(() => prompt.style.display = "none", 500);
   }
 });
+
+
+// Windy map interaction toggle buttons with styles and active state
+document.addEventListener('DOMContentLoaded', function () {
+  const windyMap = document.getElementById("windyMap");
+  const iframeContainer = windyMap.querySelector(".iframe-container");
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.style.position = "absolute";
+  buttonContainer.style.top = "10px";
+  buttonContainer.style.left = "10px";
+  buttonContainer.style.zIndex = "9999";
+  buttonContainer.style.display = "flex";
+  buttonContainer.style.gap = "10px";
+
+  function createToggleButton(text) {
+    const btn = document.createElement("button");
+    btn.innerText = text;
+    btn.className = "windy-toggle-btn";
+    return btn;
+  }
+
+  const enableBtn = createToggleButton("Enable Map Interaction");
+  const disableBtn = createToggleButton("Disable Map Interaction");
+
+  function setActive(btn) {
+    enableBtn.classList.remove("active");
+    disableBtn.classList.remove("active");
+    btn.classList.add("active");
+  }
+
+  enableBtn.addEventListener("click", () => {
+    iframeContainer.style.pointerEvents = "auto";
+    setActive(enableBtn);
+  });
+
+  disableBtn.addEventListener("click", () => {
+    iframeContainer.style.pointerEvents = "none";
+    setActive(disableBtn);
+  });
+
+  // Set initial state
+  disableBtn.classList.add("active");
+  iframeContainer.style.pointerEvents = "none";
+
+  buttonContainer.appendChild(enableBtn);
+  buttonContainer.appendChild(disableBtn);
+  windyMap.appendChild(buttonContainer);
+});
+
+ 
+
 
 // Chart.js: Migration distances by species
 document.addEventListener('DOMContentLoaded', function () {
