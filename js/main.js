@@ -8,6 +8,15 @@ var blankMap = L.map('blankMap', {
   zoomControl: true
 });
 
+var blankMap2 = L.map('blankMap2', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
 var breedingMap = L.map('breedingMap', {
   center: [0, 0],
   zoom: 2,
@@ -251,12 +260,21 @@ var stepMap21 = L.map('stepMap21', {
   zoomControl: true
 });
 
+var changeMap = L.map('changeMap', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
 
 
 // Add base tile layers
-const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
+const tileMaps = [blankMap, blankMap2, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
   stepMap5, stepMap6, stepMap7, stepMap8, stepMap9, stepMap10, stepMap11, stepMap12, stepMap13, stepMap14, stepMap15, stepMap16, stepMap17, stepMap18,
-  stepMap19, stepMap20, stepMap21
+  stepMap19, stepMap20, stepMap21, changeMap
 ];
 tileMaps.forEach(function(map) {
   L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
@@ -331,6 +349,7 @@ function styleTernPointsUp(feature) {
     fillOpacity: 0.9
   };
 }
+
 // Reusable data loader function for project (can accept style function)
 function getData(map, url, iconUrl, customStyle) {
   fetch(url)
@@ -369,6 +388,18 @@ function getData(map, url, iconUrl, customStyle) {
     .catch(error => console.error(`Error loading ${url}:`, error));
 }
 
+// tern steps points style 
+function styleStepPoints(feature) {
+  return {
+    radius: 4,
+    fillColor: "purple",
+    color: "orange",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.9
+  };
+}
+
 // Load data layers onto the maps
 // style breeding range layer
 getData(breedingMap, 'data/breeding-range.geojson', null, {
@@ -403,31 +434,116 @@ getData(iceMap, 'data/sea-ice-trace.geojson', null, {
   fillOpacity: 1           // fill transparency
 });
 
-getData(stepMap1, 'data/step1.geojson', null);
-getData(stepMap2, 'data/step2.geojson', null);
-getData(stepMap3, 'data/step3.geojson', null);
-getData(stepMap4, 'data/step4.geojson', null);
-getData(stepMap5, 'data/step5.geojson', null);
-getData(stepMap6, 'data/step6.geojson', null);
-getData(stepMap7, 'data/step7.geojson', null);
-getData(stepMap8, 'data/step8.geojson', null);
-getData(stepMap9, 'data/step9.geojson', null);
-getData(stepMap10, 'data/step10.geojson', null);
-getData(stepMap11, 'data/step11.geojson', null);
-getData(stepMap12, 'data/step12.geojson', null);
-getData(stepMap13, 'data/step13.geojson', null);
-getData(stepMap14, 'data/step14.geojson', null);
-getData(stepMap15, 'data/step15.geojson', null);
-getData(stepMap16, 'data/step16.geojson', null);
-getData(stepMap17, 'data/step17.geojson', null);
-getData(stepMap18, 'data/step18.geojson', null);
-getData(stepMap19, 'data/step19.geojson', null);
-getData(stepMap20, 'data/step20.geojson', null);
-getData(stepMap21, 'data/step21.geojson', null);
+getData(stepMap1, 'data/step1.geojson', null, styleStepPoints);
+getData(stepMap2, 'data/step2.geojson', null, styleStepPoints);
+getData(stepMap3, 'data/step3.geojson', null, styleStepPoints);
+getData(stepMap4, 'data/step4.geojson', null, styleStepPoints);
+getData(stepMap5, 'data/step5.geojson', null, styleStepPoints);
+getData(stepMap6, 'data/step6.geojson', null, styleStepPoints);
+getData(stepMap7, 'data/step7.geojson', null, styleStepPoints);
+getData(stepMap8, 'data/step8.geojson', null, styleStepPoints);
+getData(stepMap9, 'data/step9.geojson', null, styleStepPoints);
+getData(stepMap10, 'data/step10.geojson', null, styleStepPoints);
+getData(stepMap11, 'data/step11.geojson', null, styleStepPoints);
+getData(stepMap12, 'data/step12.geojson', null, styleStepPoints);
+getData(stepMap13, 'data/step13.geojson', null, styleStepPoints);
+getData(stepMap14, 'data/step14.geojson', null, styleStepPoints);
+getData(stepMap15, 'data/step15.geojson', null, styleStepPoints);
+getData(stepMap16, 'data/step16.geojson', null, styleStepPoints);
+getData(stepMap17, 'data/step17.geojson', null, styleStepPoints);
+getData(stepMap18, 'data/step18.geojson', null, styleStepPoints);
+getData(stepMap19, 'data/step19.geojson', null, styleStepPoints);
+getData(stepMap20, 'data/step20.geojson', null, styleStepPoints);
+getData(stepMap21, 'data/step21.geojson', null, styleStepPoints);
+
+
+// call mapbox 
+mapboxgl.accessToken = 'pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ';
+
+function initMapboxTerrainMap(containerId, centerCoords, zoom = 10) {
+  const map = new mapboxgl.Map({
+    container: containerId,
+    style: 'mapbox://styles/mapbox/standard-satellite',
+    center: centerCoords,
+    zoom: zoom,
+    pitch: 60,
+    bearing: -10,
+    antialias: true
+  });
+
+  // Disable scroll-to-zoom so page scrolling works normally
+  map.scrollZoom.disable();
+
+  // Add zoom-only buttons (no compass)
+  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left');
+
+
+  map.on('load', () => {
+    map.addSource('mapbox-dem', {
+      type: 'raster-dem',
+      url: 'mapbox://mapbox.terrain-rgb',
+      tileSize: 512,
+      maxzoom: 14
+    });
+
+    map.setTerrain({ source: 'mapbox-dem', exaggeration: 1.5 });
+
+    map.addLayer({
+      id: 'sky',
+      type: 'sky',
+      paint: {
+        'sky-type': 'atmosphere',
+        'sky-atmosphere-sun': [0.0, 0.0],
+        'sky-atmosphere-sun-intensity': 15
+      }
+    });
+  });
+}
+
+// call mapbox gl js locations
+initMapboxTerrainMap('glMapAlaska', [-167.55, 53.88], 9);
+initMapboxTerrainMap('glMapOregon', [-124.3389555, 40.13996991], 12);
+initMapboxTerrainMap('glMapEcuador', [-78.4678, -0.1807], 13);
+initMapboxTerrainMap('glMapAntarctica', [-63.0333, -64.6333], 8);
 
 
 
+// change map
+let currentIceLayer;
 
+function loadIceData(year) {
+  const geojsonPath = `data/sea-ice-${year}.geojson`;
+
+  if (currentIceLayer) {
+    iceMap.removeLayer(currentIceLayer);
+  }
+
+  fetch(geojsonPath)
+    .then(res => res.json())
+    .then(data => {
+      currentIceLayer = L.geoJSON(data, {
+        style: {
+          color: "#1f78b4",
+          weight: 1,
+          fillColor: "#add8e6",
+          fillOpacity: 0.6
+        }
+      }).addTo(changeMap);
+    });
+}
+
+// Event listener
+const slider = document.getElementById("yearSlider");
+const label = document.getElementById("yearLabel");
+
+slider.addEventListener("input", function () {
+  const year = this.value;
+  label.textContent = year;
+  loadIceData(year);
+});
+
+// Initial load
+loadIceData(slider.value);
 
 
 
