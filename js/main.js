@@ -62,7 +62,7 @@ var points2Map = L.map('points2Map', {
   zoomControl: true
 });
 
-var stepMap = L.map('stepMap', {
+var stepMap1 = L.map('stepMap1', {
   center: [0, 0],
   zoom: 2,
   maxZoom: 18,
@@ -71,11 +71,196 @@ var stepMap = L.map('stepMap', {
   zoomControl: true
 });
 
+var stepMap2 = L.map('stepMap2', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap3 = L.map('stepMap3', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap4 = L.map('stepMap4', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap5 = L.map('stepMap5', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap6 = L.map('stepMap6', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap7 = L.map('stepMap7', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap8 = L.map('stepMap8', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap9 = L.map('stepMap9', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap10 = L.map('stepMap10', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap11 = L.map('stepMap11', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap12 = L.map('stepMap12', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap13 = L.map('stepMap13', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap14 = L.map('stepMap14', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap15 = L.map('stepMap15', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap16 = L.map('stepMap16', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap17 = L.map('stepMap17', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap18 = L.map('stepMap18', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap19 = L.map('stepMap19', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap20 = L.map('stepMap20', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap21 = L.map('stepMap21', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+
+
 // Add base tile layers
-const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap];
+const tileMaps = [blankMap, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
+  stepMap5, stepMap6, stepMap7, stepMap8, stepMap9, stepMap10, stepMap11, stepMap12, stepMap13, stepMap14, stepMap15, stepMap16, stepMap17, stepMap18,
+  stepMap19, stepMap20, stepMap21
+];
 tileMaps.forEach(function(map) {
   L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
-    maxZoom: 18,
+    maxZoom: 18
   }).addTo(map);
 });
 
@@ -218,50 +403,28 @@ getData(iceMap, 'data/sea-ice-trace.geojson', null, {
   fillOpacity: 1           // fill transparency
 });
 
+getData(stepMap1, 'data/step1.geojson', null);
+getData(stepMap2, 'data/step2.geojson', null);
+getData(stepMap3, 'data/step3.geojson', null);
+getData(stepMap4, 'data/step4.geojson', null);
+getData(stepMap5, 'data/step5.geojson', null);
+getData(stepMap6, 'data/step6.geojson', null);
+getData(stepMap7, 'data/step7.geojson', null);
+getData(stepMap8, 'data/step8.geojson', null);
+getData(stepMap9, 'data/step9.geojson', null);
+getData(stepMap10, 'data/step10.geojson', null);
+getData(stepMap11, 'data/step11.geojson', null);
+getData(stepMap12, 'data/step12.geojson', null);
+getData(stepMap13, 'data/step13.geojson', null);
+getData(stepMap14, 'data/step14.geojson', null);
+getData(stepMap15, 'data/step15.geojson', null);
+getData(stepMap16, 'data/step16.geojson', null);
+getData(stepMap17, 'data/step17.geojson', null);
+getData(stepMap18, 'data/step18.geojson', null);
+getData(stepMap19, 'data/step19.geojson', null);
+getData(stepMap20, 'data/step20.geojson', null);
+getData(stepMap21, 'data/step21.geojson', null);
 
-//  Step-by-step point reveal for stepMap 
-let stepFeatures = [];
-let stepLayerGroup = L.layerGroup().addTo(stepMap);
-let stepIndex = 0;
-
-fetch('data/steps.geojson')
-  .then(response => response.json())
-  .then(data => {
-    stepFeatures = data.features;
-
-    const bounds = L.geoJSON(data).getBounds();
-    stepMap.fitBounds(bounds);
-  })
-  .catch(error => console.error("Error loading steps.geojson:", error));
-
-window.addEventListener("scroll", () => {
-  if (stepIndex < stepFeatures.length) {
-    const feature = stepFeatures[stepIndex];
-
-    const layer = L.geoJSON(feature, {
-      pointToLayer: (feature, latlng) => {
-        return L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: "white",
-          color: "black",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 1
-        });
-      },
-      onEachFeature: (feature, layer) => {
-        let popupContent = "";
-        for (let key in feature.properties) {
-          popupContent += `<p><strong>${key}</strong>: ${feature.properties[key]}</p>`;
-        }
-        layer.bindPopup(popupContent);
-      }
-    });
-
-    layer.addTo(stepLayerGroup);
-    stepIndex++;
-  }
-});
 
 
 
