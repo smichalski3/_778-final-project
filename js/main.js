@@ -457,6 +457,7 @@ getData(stepMap20, 'data/step20.geojson', null, styleStepPoints);
 getData(stepMap21, 'data/step21.geojson', null, styleStepPoints);
 
 
+
 // call mapbox 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ';
 
@@ -507,19 +508,23 @@ initMapboxTerrainMap('glMapEcuador', [-78.4678, -0.1807], 13);
 initMapboxTerrainMap('glMapAntarctica', [-63.0333, -64.6333], 8);
 
 
-
 // change map
 let currentIceLayer;
+const validYears = [1979, 2025]; 
 
 function loadIceData(year) {
-  const geojsonPath = `data/sea-ice-${year}.geojson`;
+  const snappedYear = year < 2000 ? 1979 : 2025;
+  const geojsonPath = `data/sea-ice-${snappedYear}.geojson`;
 
   if (currentIceLayer) {
-    iceMap.removeLayer(currentIceLayer);
+    changeMap.removeLayer(currentIceLayer);
   }
 
   fetch(geojsonPath)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load ${geojsonPath}`);
+      return res.json();
+    })
     .then(data => {
       currentIceLayer = L.geoJSON(data, {
         style: {
@@ -529,21 +534,24 @@ function loadIceData(year) {
           fillOpacity: 0.6
         }
       }).addTo(changeMap);
-    });
+    })
+    .catch(err => console.error(err));
 }
 
-// Event listener
+// Slider logic
 const slider = document.getElementById("yearSlider");
 const label = document.getElementById("yearLabel");
 
 slider.addEventListener("input", function () {
-  const year = this.value;
-  label.textContent = year;
-  loadIceData(year);
+  const year = Number(this.value);
+  const snappedYear = year < 2000 ? 1979 : 2025;
+  label.textContent = snappedYear;
+  loadIceData(snappedYear);
 });
 
 // Initial load
-loadIceData(slider.value);
+loadIceData(1979);
+
 
 
 
