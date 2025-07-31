@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css">
   <link rel="stylesheet" href="lib/scrollmap.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="lib/leaflet/range.css">
+  <link rel="stylesheet" href="lib/leaflet/layout.css">
+  <link rel="stylesheet" href="lib/leaflet/leaflet.zoomhome.css">
+
 </head>
 
 <body>
@@ -412,12 +416,7 @@
 
     <div class="scroll-container"> 
        <div class="background-item no-margin">
-          <div id="changeControls">
-            <label for="yearSlider">Year: <span id="yearLabel">1979</span></label>
-            <input type="range" id="yearSlider" min="1979" max="2025" value="1979" step="1">
-          </div>
-
-          <div id="changeMap" data-slide="0" class="fill vert-center" style="width: 100vw; height: 100vh;"></div>
+          <div id="sliderMap" class="fill vert-center"></div>
       </div>
 
         <div class="foreground-item no-event">
@@ -456,7 +455,10 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/main.js"></script>
+  <script src="lib/leaflet/leaflet-side-by-side.js"></script>
   <script src="lib/scrollmap.js"></script>
+  <script src="lib/leaflet/leaflet.zoomhome.min.js"></script>
+
 </body>
 </html>
 

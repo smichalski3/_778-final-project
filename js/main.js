@@ -260,21 +260,13 @@ var stepMap21 = L.map('stepMap21', {
   zoomControl: true
 });
 
-var changeMap = L.map('changeMap', {
-  center: [0, 0],
-  zoom: 2,
-  maxZoom: 18,
-  minZoom: 1,
-  scrollWheelZoom: false,
-  zoomControl: true
-});
-
+var sliderMap;
 
 
 // Add base tile layers
 const tileMaps = [blankMap, blankMap2, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
   stepMap5, stepMap6, stepMap7, stepMap8, stepMap9, stepMap10, stepMap11, stepMap12, stepMap13, stepMap14, stepMap15, stepMap16, stepMap17, stepMap18,
-  stepMap19, stepMap20, stepMap21, changeMap
+  stepMap19, stepMap20, stepMap21
 ];
 tileMaps.forEach(function(map) {
   L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
@@ -507,50 +499,49 @@ initMapboxTerrainMap('glMapOregon', [-124.3389555, 40.13996991], 12);
 initMapboxTerrainMap('glMapEcuador', [-78.4678, -0.1807], 13);
 initMapboxTerrainMap('glMapAntarctica', [-63.0333, -64.6333], 8);
 
+// SLIDER MAP
 
-// change map
-let currentIceLayer;
-const validYears = [1979, 2025]; 
+// function to create Slider map
+function createSliderMap(){
 
-function loadIceData(year) {
-  const snappedYear = year < 2000 ? 1979 : 2025;
-  const geojsonPath = `data/sea-ice-${snappedYear}.geojson`;
+    sliderMap = L.map('sliderMap',{
+        center: [39,-96],
+        zoom: 5,
+        maxZoom: 12,
+        minZoom: 5,
+        scrollWheelZoom: false,
+        zoomControl: true});
 
-  if (currentIceLayer) {
-    changeMap.removeLayer(currentIceLayer);
-  }
+    // mapbox layer 1
+    var layer1 = L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', { 
+        attribution: '&copy <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> &copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(sliderMap);
 
-  fetch(geojsonPath)
-    .then(res => {
-      if (!res.ok) throw new Error(`Failed to load ${geojsonPath}`);
-      return res.json();
-    })
-    .then(data => {
-      currentIceLayer = L.geoJSON(data, {
-        style: {
-          color: "#1f78b4",
-          weight: 1,
-          fillColor: "#add8e6",
-          fillOpacity: 0.6
+    // mapbox layer 2
+    var layer2 = L.tileLayer('https://api.mapbox.com/styles/v1/ajnovak/cl2grbrgj003o14mot9tnmwh1/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWpub3ZhayIsImEiOiJja2dnMWJoYXkwd3hlMnlsN241MHU3aTdyIn0.YlwTqHjnT8sUrhr8vtkWjg', { 
+        attribution: '&copy <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> &copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(sliderMap);
+
+    // compare two layers on map
+    L.control.sideBySide(layer1, layer2).addTo(sliderMap);
+    
+
+    // create legend control holding svg legend and add to map
+    var sliderLegend = L.Control.extend({
+        options: {
+            position: "bottomleft"
+        },
+        onAdd:function(){
+            var sliderContainer = L.DomUtil.create('div','legend-control-container1');
+            var svg = '<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 55"><defs><style>.d{letter-spacing:-.015em;}.e{font-size:9px;}.e,.f{fill:#0f1031;font-family:AstoriaSans-Roman, Astoria Sans;}.g{fill:url(#c);}.h{letter-spacing:-.01004em;}.i{letter-spacing:.02002em;}.j{letter-spacing:-.01998em;}.f{font-size:11px;}.k{letter-spacing:-.01997em;}</style><linearGradient id="c" x1="13.02934" y1="27.5" x2="246.97012" y2="27.5" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0c1c2c"/><stop offset="1" stop-color="#f7f8e8"/></linearGradient></defs><g id="a"/><g id="b"><g><rect class="g" x="13.02934" y="18.11785" width="233.94077" height="18.7643"/><text class="f" transform="translate(99.91502 14.51568)"><tspan x="0" y="0">Visible S</tspan><tspan class="i" x="41.46924" y="0">t</tspan><tspan x="45.83643" y="0">a</tspan><tspan class="d" x="51.21533" y="0">r</tspan><tspan x="55.65918" y="0">s</tspan></text><text class="f" transform="translate(48.00135 48.13983)"><tspan x="0" y="0">Magnitude per Squa</tspan><tspan class="j" x="98.88916" y="0">r</tspan><tspan x="103.27832" y="0">e A</tspan><tspan class="j" x="119.96484" y="0">r</tspan><tspan x="124.354" y="0">csecond</tspan></text><text class="e" transform="translate(230.29321 15.03096)"><tspan class="h" x="0" y="0">L</tspan><tspan x="4.57178" y="0">ess</tspan></text><text class="e" transform="translate(13.02946 15.03084)"><tspan x="0" y="0">Mo</tspan><tspan class="k" x="12.93262" y="0">r</tspan><tspan x="16.52393" y="0">e</tspan></text><text class="e" transform="translate(225.65903 48.65596)"><tspan x="0" y="0">17.80</tspan></text><text class="e" transform="translate(13.02921 48.65584)"><tspan x="0" y="0">22.00</tspan></text></g></g></svg>'
+            sliderContainer.insertAdjacentHTML('beforeend',svg)
+            return sliderContainer;
         }
-      }).addTo(changeMap);
-    })
-    .catch(err => console.error(err));
-}
+    });
+    sliderMap.addControl(new sliderLegend()); 
+};
 
-// Slider logic
-const slider = document.getElementById("yearSlider");
-const label = document.getElementById("yearLabel");
 
-slider.addEventListener("input", function () {
-  const year = Number(this.value);
-  const snappedYear = year < 2000 ? 1979 : 2025;
-  label.textContent = snappedYear;
-  loadIceData(snappedYear);
-});
-
-// Initial load
-loadIceData(1979);
 
 
 
@@ -661,3 +652,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', createSliderMap)
