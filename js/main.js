@@ -260,13 +260,101 @@ var stepMap21 = L.map('stepMap21', {
   zoomControl: true
 });
 
-var sliderMap;
+var iceMap1 = L.map('iceMap1', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap2 = L.map('iceMap2', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap3 = L.map('iceMap3', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap4 = L.map('iceMap4', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap5 = L.map('iceMap5', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap6 = L.map('iceMap6', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap7 = L.map('iceMap7', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap8 = L.map('iceMap8', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap9 = L.map('iceMap9', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var iceMap10 = L.map('iceMap10', {
+  center: [0, 0],
+  zoom: 2,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
 
 
 // Add base tile layers
 const tileMaps = [blankMap, blankMap2, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
   stepMap5, stepMap6, stepMap7, stepMap8, stepMap9, stepMap10, stepMap11, stepMap12, stepMap13, stepMap14, stepMap15, stepMap16, stepMap17, stepMap18,
-  stepMap19, stepMap20, stepMap21
+  stepMap19, stepMap20, stepMap21, iceMap1, iceMap2, iceMap3, iceMap4, iceMap5, iceMap6, iceMap7, iceMap8, iceMap9, iceMap10
 ];
 tileMaps.forEach(function(map) {
   L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
@@ -448,6 +536,20 @@ getData(stepMap19, 'data/step19.geojson', null, styleStepPoints);
 getData(stepMap20, 'data/step20.geojson', null, styleStepPoints);
 getData(stepMap21, 'data/step21.geojson', null, styleStepPoints);
 
+// get sea ice time data
+getData(iceMap1, 'data/sea-ice-1979.geojson', null);
+getData(iceMap2, 'data/sea-ice-1985.geojson', null);
+getData(iceMap3, 'data/sea-ice-1990.geojson', null);
+getData(iceMap4, 'data/sea-ice-1995.geojson', null);
+getData(iceMap5, 'data/sea-ice-2000.geojson', null);
+getData(iceMap6, 'data/sea-ice-2005.geojson', null);
+getData(iceMap7, 'data/sea-ice-2010.geojson', null);
+getData(iceMap8, 'data/sea-ice-2015.geojson', null);
+getData(iceMap9, 'data/sea-ice-2020.geojson', null);
+getData(iceMap10, 'data/sea-ice-2025.geojson', null);
+
+
+
 
 
 // call mapbox 
@@ -498,49 +600,6 @@ initMapboxTerrainMap('glMapAlaska', [-167.55, 53.88], 9);
 initMapboxTerrainMap('glMapOregon', [-124.3389555, 40.13996991], 12);
 initMapboxTerrainMap('glMapEcuador', [-78.4678, -0.1807], 13);
 initMapboxTerrainMap('glMapAntarctica', [-63.0333, -64.6333], 8);
-
-// SLIDER MAP
-
-// function to create Slider map
-function createSliderMap(){
-
-    sliderMap = L.map('sliderMap',{
-        center: [39,-96],
-        zoom: 5,
-        maxZoom: 12,
-        minZoom: 5,
-        scrollWheelZoom: false,
-        zoomControl: true});
-
-    // mapbox layer 1
-    var layer1 = L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', { 
-        attribution: '&copy <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> &copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(sliderMap);
-
-    // mapbox layer 2
-    var layer2 = L.tileLayer('https://api.mapbox.com/styles/v1/ajnovak/cl2grbrgj003o14mot9tnmwh1/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWpub3ZhayIsImEiOiJja2dnMWJoYXkwd3hlMnlsN241MHU3aTdyIn0.YlwTqHjnT8sUrhr8vtkWjg', { 
-        attribution: '&copy <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> &copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(sliderMap);
-
-    // compare two layers on map
-    L.control.sideBySide(layer1, layer2).addTo(sliderMap);
-    
-
-    // create legend control holding svg legend and add to map
-    var sliderLegend = L.Control.extend({
-        options: {
-            position: "bottomleft"
-        },
-        onAdd:function(){
-            var sliderContainer = L.DomUtil.create('div','legend-control-container1');
-            var svg = '<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 55"><defs><style>.d{letter-spacing:-.015em;}.e{font-size:9px;}.e,.f{fill:#0f1031;font-family:AstoriaSans-Roman, Astoria Sans;}.g{fill:url(#c);}.h{letter-spacing:-.01004em;}.i{letter-spacing:.02002em;}.j{letter-spacing:-.01998em;}.f{font-size:11px;}.k{letter-spacing:-.01997em;}</style><linearGradient id="c" x1="13.02934" y1="27.5" x2="246.97012" y2="27.5" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0c1c2c"/><stop offset="1" stop-color="#f7f8e8"/></linearGradient></defs><g id="a"/><g id="b"><g><rect class="g" x="13.02934" y="18.11785" width="233.94077" height="18.7643"/><text class="f" transform="translate(99.91502 14.51568)"><tspan x="0" y="0">Visible S</tspan><tspan class="i" x="41.46924" y="0">t</tspan><tspan x="45.83643" y="0">a</tspan><tspan class="d" x="51.21533" y="0">r</tspan><tspan x="55.65918" y="0">s</tspan></text><text class="f" transform="translate(48.00135 48.13983)"><tspan x="0" y="0">Magnitude per Squa</tspan><tspan class="j" x="98.88916" y="0">r</tspan><tspan x="103.27832" y="0">e A</tspan><tspan class="j" x="119.96484" y="0">r</tspan><tspan x="124.354" y="0">csecond</tspan></text><text class="e" transform="translate(230.29321 15.03096)"><tspan class="h" x="0" y="0">L</tspan><tspan x="4.57178" y="0">ess</tspan></text><text class="e" transform="translate(13.02946 15.03084)"><tspan x="0" y="0">Mo</tspan><tspan class="k" x="12.93262" y="0">r</tspan><tspan x="16.52393" y="0">e</tspan></text><text class="e" transform="translate(225.65903 48.65596)"><tspan x="0" y="0">17.80</tspan></text><text class="e" transform="translate(13.02921 48.65584)"><tspan x="0" y="0">22.00</tspan></text></g></g></svg>'
-            sliderContainer.insertAdjacentHTML('beforeend',svg)
-            return sliderContainer;
-        }
-    });
-    sliderMap.addControl(new sliderLegend()); 
-};
-
 
 
 
@@ -653,4 +712,3 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', createSliderMap)
