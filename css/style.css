@@ -27,7 +27,7 @@
   color: rgb(184, 184, 184);
 }
 
-/* arrow start */
+/* arrow  */
 #scrollPrompt {
   position: fixed;
   top: 85%;
@@ -43,7 +43,6 @@
   z-index: 9999;
   animation: fadein 1s ease-in-out;
 }
-
 
 .arrow {
   font-size: 2rem;
@@ -67,6 +66,7 @@
   margin: 2rem auto;
   display: block;
 }
+
 
 /* windy map styling */
 .iframe-container {

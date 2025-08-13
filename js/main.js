@@ -378,10 +378,14 @@ const tileMaps = [blankMap, blankMap2, blankMap3, blankMap4, breedingMap, points
   stepMap19, stepMap20, stepMap21, iceMap1, iceMap2, iceMap3, iceMap4, iceMap5, iceMap6, iceMap7, iceMap8, iceMap9, iceMap10
 ];
 tileMaps.forEach(function(map) {
-  L.tileLayer('https://api.mapbox.com/styles/v1/smichalski/clgpx6cap00e901nn9jbi9fyt/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ', {
-    maxZoom: 18
-  }).addTo(map);
+  L.tileLayer(
+    'https://api.mapbox.com/styles/v1/smichalski/cme9a7p47006t01s28yrkeknl/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uMDhzNXB0NTRlIn0.c1_vy157AkEEGNIfyQI9YQ',
+    {
+      maxZoom: 18
+    }
+  ).addTo(map);
 });
+
 
 // tern points down styling 
 function styleTernPointsDown(feature) {
