@@ -81,8 +81,8 @@ var stepMap1 = L.map('stepMap1', {
 });
 
 var stepMap2 = L.map('stepMap2', {
-  center: [0, 0],
-  zoom: 2,
+  center: [46.5, -125], // around WA/OR coast 
+  zoom: 4,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -90,17 +90,18 @@ var stepMap2 = L.map('stepMap2', {
 });
 
 var stepMap3 = L.map('stepMap3', {
-  center: [0, 0],
-  zoom: 2,
+  center: [46.5, -125], // around WA/OR coast 
+  zoom: 4,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
   zoomControl: true
 });
 
+
 var stepMap4 = L.map('stepMap4', {
-  center: [0, 0],
-  zoom: 2,
+  center: [46.5, -125], // around WA/OR coast 
+  zoom: 4,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -108,8 +109,8 @@ var stepMap4 = L.map('stepMap4', {
 });
 
 var stepMap5 = L.map('stepMap5', {
-  center: [0, 0],
-  zoom: 2,
+  center: [46.5, -125], // around WA/OR coast 
+  zoom: 4,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -117,8 +118,8 @@ var stepMap5 = L.map('stepMap5', {
 });
 
 var stepMap6 = L.map('stepMap6', {
-  center: [0, 0],
-  zoom: 2,
+  center: [46.5, -125], // around WA/OR coast 
+  zoom: 4,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -126,17 +127,18 @@ var stepMap6 = L.map('stepMap6', {
 });
 
 var stepMap7 = L.map('stepMap7', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
   zoomControl: true
 });
 
+
 var stepMap8 = L.map('stepMap8', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -144,8 +146,8 @@ var stepMap8 = L.map('stepMap8', {
 });
 
 var stepMap9 = L.map('stepMap9', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -153,8 +155,8 @@ var stepMap9 = L.map('stepMap9', {
 });
 
 var stepMap10 = L.map('stepMap10', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -162,8 +164,8 @@ var stepMap10 = L.map('stepMap10', {
 });
 
 var stepMap11 = L.map('stepMap11', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -171,8 +173,8 @@ var stepMap11 = L.map('stepMap11', {
 });
 
 var stepMap12 = L.map('stepMap12', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -180,8 +182,8 @@ var stepMap12 = L.map('stepMap12', {
 });
 
 var stepMap13 = L.map('stepMap13', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -189,8 +191,8 @@ var stepMap13 = L.map('stepMap13', {
 });
 
 var stepMap14 = L.map('stepMap14', {
-  center: [0, 0],
-  zoom: 2,
+  center: [32.5, -120], // mexico/Cal coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -198,17 +200,18 @@ var stepMap14 = L.map('stepMap14', {
 });
 
 var stepMap15 = L.map('stepMap15', {
-  center: [0, 0],
-  zoom: 2,
+  center: [-45, -80], // south american coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
   zoomControl: true
 });
 
+
 var stepMap16 = L.map('stepMap16', {
-  center: [0, 0],
-  zoom: 2,
+  center: [-45, -80], // south american coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -216,8 +219,8 @@ var stepMap16 = L.map('stepMap16', {
 });
 
 var stepMap17 = L.map('stepMap17', {
-  center: [0, 0],
-  zoom: 2,
+  center: [-45, -80], // south american coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -225,8 +228,8 @@ var stepMap17 = L.map('stepMap17', {
 });
 
 var stepMap18 = L.map('stepMap18', {
-  center: [0, 0],
-  zoom: 2,
+  center: [-45, -80], // south american coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -234,8 +237,8 @@ var stepMap18 = L.map('stepMap18', {
 });
 
 var stepMap19 = L.map('stepMap19', {
-  center: [0, 0],
-  zoom: 2,
+  center: [-45, -80], // south american coast
+  zoom: 3,
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
@@ -243,6 +246,24 @@ var stepMap19 = L.map('stepMap19', {
 });
 
 var stepMap20 = L.map('stepMap20', {
+  center: [-45, -80], // south american coast
+  zoom: 3,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var stepMap21 = L.map('stepMap21', {
+  center: [-45, -80], // south american coast
+  zoom: 3,
+  maxZoom: 18,
+  minZoom: 1,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+var blankMap3 = L.map('blankMap3', {
   center: [0, 0],
   zoom: 2,
   maxZoom: 18,
@@ -251,7 +272,7 @@ var stepMap20 = L.map('stepMap20', {
   zoomControl: true
 });
 
-var stepMap21 = L.map('stepMap21', {
+var blankMap4 = L.map('blankMap4', {
   center: [0, 0],
   zoom: 2,
   maxZoom: 18,
@@ -352,7 +373,7 @@ var iceMap10 = L.map('iceMap10', {
 
 
 // Add base tile layers
-const tileMaps = [blankMap, blankMap2, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
+const tileMaps = [blankMap, blankMap2, blankMap3, blankMap4, breedingMap, pointsMap, climateMap, nonBreedingMap, iceMap, points2Map, stepMap1, stepMap2, stepMap3, stepMap4,
   stepMap5, stepMap6, stepMap7, stepMap8, stepMap9, stepMap10, stepMap11, stepMap12, stepMap13, stepMap14, stepMap15, stepMap16, stepMap17, stepMap18,
   stepMap19, stepMap20, stepMap21, iceMap1, iceMap2, iceMap3, iceMap4, iceMap5, iceMap6, iceMap7, iceMap8, iceMap9, iceMap10
 ];
@@ -596,10 +617,10 @@ function initMapboxTerrainMap(containerId, centerCoords, zoom = 10) {
 }
 
 // call mapbox gl js locations
-initMapboxTerrainMap('glMapAlaska', [-167.55, 53.88], 9);
-initMapboxTerrainMap('glMapOregon', [-124.3389555, 40.13996991], 12);
-initMapboxTerrainMap('glMapEcuador', [-78.4678, -0.1807], 13);
-initMapboxTerrainMap('glMapAntarctica', [-63.0333, -64.6333], 8);
+initMapboxTerrainMap('glMapAlaska', [-166.527, 53.83], 13);
+initMapboxTerrainMap('glMapOregon', [-124.29, 40.22], 14);
+initMapboxTerrainMap('glMapEcuador', [-78.55, -0.14], 13);
+initMapboxTerrainMap('glMapAntarctica', [-63.0333, -65.4], 7);
 
 
 
