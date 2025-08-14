@@ -1,27 +1,312 @@
 {
-"type": "FeatureCollection",
-"name": "tern-points-down",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "timestamp": "2017-09-02 01:49:00", "long": -109.4489805, "lat": 20.79785806, "end_timest": "2017-09-02 12:35:00", "lat_lower": 8.618928315, "lat_upper": 29.02501042, "long_lower": -116.3706136, "long_upper": -102.7718068, "start_time": "2017-09-02 01:49:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -109.4489805, 20.79785806 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-02 12:35:00", "long": -108.877895, "lat": 18.43527079, "end_timest": "2017-09-03 01:50:00", "lat_lower": 5.00792386, "lat_upper": 28.32394385, "long_lower": -116.4947197, "long_upper": -101.2958829, "start_time": "2017-09-02 12:35:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -108.877895, 18.43527079 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-03 01:50:00", "long": -108.5890674, "lat": 16.9655415, "end_timest": "2017-09-03 12:34:00", "lat_lower": 4.872943445, "lat_upper": 26.59989815, "long_lower": -114.9515048, "long_upper": -102.0224774, "start_time": "2017-09-03 01:50:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -108.5890674, 16.9655415 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-03 12:34:00", "long": -107.3807843, "lat": 14.88014533, "end_timest": "2017-09-04 01:36:00", "lat_lower": 4.129184646, "lat_upper": 24.70447798, "long_lower": -114.6147065, "long_upper": -100.4797204, "start_time": "2017-09-03 12:34:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -107.3807843, 14.88014533 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-04 01:36:00", "long": -107.1867438, "lat": 12.89381586, "end_timest": "2017-09-04 12:38:00", "lat_lower": 2.742037121, "lat_upper": 22.75342337, "long_lower": -113.8870386, "long_upper": -100.8861066, "start_time": "2017-09-04 01:36:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -107.1867438, 12.89381586 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-04 12:38:00", "long": -107.2385245, "lat": 11.28583419, "end_timest": "2017-09-05 01:33:00", "lat_lower": 1.481149465, "lat_upper": 22.28949471, "long_lower": -114.638346, "long_upper": -99.82256414, "start_time": "2017-09-04 12:38:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -107.2385245, 11.28583419 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-05 01:33:00", "long": -107.6329546, "lat": 10.03971102, "end_timest": "2017-09-05 12:44:00", "lat_lower": -0.15168681, "lat_upper": 21.25029861, "long_lower": -114.0760284, "long_upper": -101.2207064, "start_time": "2017-09-05 01:33:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -107.6329546, 10.03971102 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-05 12:44:00", "long": -106.0704653, "lat": 8.532601267, "end_timest": "2017-09-06 01:19:00", "lat_lower": -2.804174761, "lat_upper": 19.78228777, "long_lower": -113.289622, "long_upper": -98.98333486, "start_time": "2017-09-05 12:44:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -106.0704653, 8.532601267 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-06 01:19:00", "long": -104.8662845, "lat": 7.316868116, "end_timest": "2017-09-06 12:34:00", "lat_lower": -3.884293102, "lat_upper": 19.01398687, "long_lower": -111.422804, "long_upper": -98.18564501, "start_time": "2017-09-06 01:19:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -104.8662845, 7.316868116 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-06 12:34:00", "long": -104.3740713, "lat": 7.648411875, "end_timest": "2017-09-07 01:18:00", "lat_lower": -2.453346447, "lat_upper": 18.54248486, "long_lower": -111.2939926, "long_upper": -97.37566639000001, "start_time": "2017-09-06 12:34:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -104.3740713, 7.648411875 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-07 01:18:00", "long": -102.5054261, "lat": 8.590259469, "end_timest": "2017-09-07 12:16:00", "lat_lower": -0.353382485, "lat_upper": 18.72133896, "long_lower": -109.4325395, "long_upper": -95.7666095, "start_time": "2017-09-07 01:18:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -102.5054261, 8.590259469 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-07 12:16:00", "long": -101.9617408, "lat": 10.08638827, "end_timest": "2017-09-08 01:13:00", "lat_lower": -0.576085575, "lat_upper": 19.63666151, "long_lower": -109.2690968, "long_upper": -94.90449562000001, "start_time": "2017-09-07 12:16:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -101.9617408, 10.08638827 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-08 01:13:00", "long": -101.2596674, "lat": 10.45067048, "end_timest": "2017-09-08 12:12:00", "lat_lower": 1.939085316, "lat_upper": 19.41936794, "long_lower": -107.8773677, "long_upper": -94.60216366, "start_time": "2017-09-08 01:13:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -101.2596674, 10.45067048 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-08 12:12:00", "long": -99.43624483000001, "lat": 10.07371359, "end_timest": "2017-09-09 00:58:00", "lat_lower": 0.876564339, "lat_upper": 21.49586045, "long_lower": -106.0135751, "long_upper": -93.05942097000001, "start_time": "2017-09-08 12:12:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -99.43624483, 10.07371359 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-09 00:58:00", "long": -98.00595029, "lat": 9.622381987000001, "end_timest": "2017-09-09 12:01:00", "lat_lower": 0.218425222, "lat_upper": 21.6677447, "long_lower": -104.2488648, "long_upper": -91.38325736, "start_time": "2017-09-09 00:58:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -98.00595029, 9.622381987 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-09 12:01:00", "long": -96.129331, "lat": 9.245971278000001, "end_timest": "2017-09-10 00:43:00", "lat_lower": -0.620535639, "lat_upper": 22.34120655, "long_lower": -102.6571147, "long_upper": -89.61867132, "start_time": "2017-09-09 12:01:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -96.129331, 9.245971278 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-10 00:43:00", "long": -94.10402008, "lat": 8.5235913360000044, "end_timest": "2017-09-10 11:44:00", "lat_lower": -1.093818516, "lat_upper": 24.2918881, "long_lower": -100.2225368, "long_upper": -87.22001435, "start_time": "2017-09-10 00:43:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -94.10402008, 8.523591336 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-10 11:44:00", "long": -92.03430354, "lat": 7.914673814, "end_timest": "2017-09-11 00:23:00", "lat_lower": -4.3118943720000011, "lat_upper": 24.70095034, "long_lower": -99.29423477, "long_upper": -84.65395435000001, "start_time": "2017-09-10 11:44:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -92.03430354, 7.914673814 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-11 00:23:00", "long": -89.72521218, "lat": 6.642542429, "end_timest": "2017-09-11 11:29:00", "lat_lower": -5.026796316, "lat_upper": 22.81630827, "long_lower": -96.1538463, "long_upper": -82.83617012000001, "start_time": "2017-09-11 00:23:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -89.72521218, 6.642542429 ] } },
-{ "type": "Feature", "properties": { "timestamp": "2017-09-11 11:29:00", "long": -87.11187426, "lat": 5.355836528, "end_timest": "2017-09-12 00:01:00", "lat_lower": -4.261166916, "lat_upper": 17.44446675, "long_lower": -93.70802991, "long_upper": -79.47075879, "start_time": "2017-09-11 11:29:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -87.11187426, 5.355836528 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "tern-points-down",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-02 01:49:00",
+        "long": -109.4489805,
+        "lat": 20.79785806
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.4489805,
+          20.79785806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-02 12:35:00",
+        "long": -108.877895,
+        "lat": 18.43527079
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.877895,
+          18.43527079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-03 01:50:00",
+        "long": -108.5890674,
+        "lat": 16.9655415
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.5890674,
+          16.9655415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-03 12:34:00",
+        "long": -107.3807843,
+        "lat": 14.88014533
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.3807843,
+          14.88014533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-04 01:36:00",
+        "long": -107.1867438,
+        "lat": 12.89381586
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.1867438,
+          12.89381586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-04 12:38:00",
+        "long": -107.2385245,
+        "lat": 11.28583419
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.2385245,
+          11.28583419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-05 01:33:00",
+        "long": -107.6329546,
+        "lat": 10.03971102
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.6329546,
+          10.03971102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-05 12:44:00",
+        "long": -106.0704653,
+        "lat": 8.532601267
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0704653,
+          8.532601267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-06 01:19:00",
+        "long": -104.8662845,
+        "lat": 7.316868116
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.8662845,
+          7.316868116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-06 12:34:00",
+        "long": -104.3740713,
+        "lat": 7.648411875
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.3740713,
+          7.648411875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-07 01:18:00",
+        "long": -102.5054261,
+        "lat": 8.590259469
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.5054261,
+          8.590259469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-07 12:16:00",
+        "long": -101.9617408,
+        "lat": 10.08638827
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.9617408,
+          10.08638827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-08 01:13:00",
+        "long": -101.2596674,
+        "lat": 10.45067048
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.2596674,
+          10.45067048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-08 12:12:00",
+        "long": -99.43624483,
+        "lat": 10.07371359
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.43624483,
+          10.07371359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-09 00:58:00",
+        "long": -98.00595029,
+        "lat": 9.622381987
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.00595029,
+          9.622381987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-09 12:01:00",
+        "long": -96.129331,
+        "lat": 9.245971278
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.129331,
+          9.245971278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-10 00:43:00",
+        "long": -94.10402008,
+        "lat": 8.523591336000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.10402008,
+          8.523591336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-10 11:44:00",
+        "long": -92.03430354,
+        "lat": 7.914673814
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.03430354,
+          7.914673814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-11 00:23:00",
+        "long": -89.72521218,
+        "lat": 6.642542429
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.72521218,
+          6.642542429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "timestamp": "2017-09-11 11:29:00",
+        "long": -87.11187426,
+        "lat": 5.355836528
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.11187426,
+          5.355836528
+        ]
+      }
+    }
+  ]
 }

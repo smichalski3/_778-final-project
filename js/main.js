@@ -456,13 +456,20 @@ function styleTernPointsUp(feature) {
   };
 }
 
-// Reusable data loader function for project (can accept style function)
+
+// Only bind popups on climateMap and stepMap[1-21]
 function getData(map, url, iconUrl, customStyle) {
+  // helper: which maps should have popups?
+  function allowPopupFor(m) {
+    const id = m && m._container && m._container.id;
+    return id === 'climateMap' || /^stepMap\d+$/.test(id);
+  }
+
   fetch(url)
     .then(response => response.json())
     .then(json => {
       L.geoJson(json, {
-        style: customStyle,  // ← apply style if it's passed
+        style: customStyle,
         pointToLayer: function (feature, latlng) {
           if (iconUrl) {
             var customIcon = L.icon({
@@ -482,24 +489,27 @@ function getData(map, url, iconUrl, customStyle) {
             });
           }
         },
-        onEachFeature: function (feature, layer) {
-          let popupContent = "";
-          for (let property in feature.properties) {
-            popupContent += `<p><strong>${property}</strong>: ${feature.properties[property]}</p>`;
-          }
-          layer.bindPopup(popupContent);
-        }
+        onEachFeature: allowPopupFor(map)
+          ? function (feature, layer) {
+              let html = "";
+              for (let property in feature.properties) {
+                html += `<p><strong>${property}</strong>: ${feature.properties[property]}</p>`;
+              }
+              if (html) layer.bindPopup(html);
+            }
+          : undefined
       }).addTo(map);
     })
     .catch(error => console.error(`Error loading ${url}:`, error));
 }
 
+
 // tern steps points style 
 function styleStepPoints(feature) {
   return {
     radius: 4,
-    fillColor: "purple",
-    color: "orange",
+    fillColor: "#34547e",
+    color: "#40699e",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.9
@@ -509,10 +519,11 @@ function styleStepPoints(feature) {
 // Load data layers onto the maps
 // style breeding range layer
 getData(breedingMap, 'data/breeding-range.geojson', null, {
-  color: "none",          // outline color
+  color: "none",  
+  stroke: "false",        // outline color
   weight: 2,                 // outline thickness
   fillColor: "#6db277",      // fill color
-  fillOpacity: 1           // fill transparency
+  fillOpacity: 0.6           // fill transparency
 });
 
 // get first points layer
@@ -523,22 +534,16 @@ getData(climateMap, 'data/climate-zones.geojson', null, styleClimateZone);
 
 // style non breeding range layer
 getData(nonBreedingMap, 'data/non-breeding-range.geojson', null, {
-  color: "#none",          // outline color
+  color: "none",  
+  stroke: "false",        // outline color
   weight: 2,                 // outline thickness
   fillColor: "#6db277",      // fill color
-  fillOpacity: 1           // fill transparency
+  fillOpacity: 0.6           // fill transparency
 });
 
 // get second points layer
 getData(points2Map, 'data/tern-points-up.geojson', null, styleTernPointsUp);
 
-// style sea ice layer 
-getData(iceMap, 'data/sea-ice-trace.geojson', null, {
-  color: "none",          // outline color
-  weight: 2,                 // outline thickness
-  fillColor: "#8e8e8e",      // fill color
-  fillOpacity: 1           // fill transparency
-});
 
 getData(stepMap1, 'data/step1.geojson', null, styleStepPoints);
 getData(stepMap2, 'data/step2.geojson', null, styleStepPoints);
@@ -562,17 +567,31 @@ getData(stepMap19, 'data/step19.geojson', null, styleStepPoints);
 getData(stepMap20, 'data/step20.geojson', null, styleStepPoints);
 getData(stepMap21, 'data/step21.geojson', null, styleStepPoints);
 
-// get sea ice time data
-getData(iceMap1, 'data/sea-ice-1979.geojson', null);
-getData(iceMap2, 'data/sea-ice-1985.geojson', null);
-getData(iceMap3, 'data/sea-ice-1990.geojson', null);
-getData(iceMap4, 'data/sea-ice-1995.geojson', null);
-getData(iceMap5, 'data/sea-ice-2000.geojson', null);
-getData(iceMap6, 'data/sea-ice-2005.geojson', null);
-getData(iceMap7, 'data/sea-ice-2010.geojson', null);
-getData(iceMap8, 'data/sea-ice-2015.geojson', null);
-getData(iceMap9, 'data/sea-ice-2020.geojson', null);
-getData(iceMap10, 'data/sea-ice-2025.geojson', null);
+
+// Shared style for ALL sea-ice polygons
+const seaIceStyle = {
+  color: "none", 
+  stroke: "false",     // keep as you have it
+  weight: 2,          // (used only if color/stroke is active)
+  fillColor: "#8e8e8e",
+  fillOpacity: 0.6
+};
+
+// sea-ice trace (uses the same style)
+getData(iceMap, 'data/sea-ice-trace.geojson', null, seaIceStyle);
+
+
+// sea-ice time slices (all share seaIceStyle)
+getData(iceMap1,  'data/sea-ice-1979.geojson', null, seaIceStyle);
+getData(iceMap2,  'data/sea-ice-1985.geojson', null, seaIceStyle);
+getData(iceMap3,  'data/sea-ice-1990.geojson', null, seaIceStyle);
+getData(iceMap4,  'data/sea-ice-1995.geojson', null, seaIceStyle);
+getData(iceMap5,  'data/sea-ice-2000.geojson', null, seaIceStyle);
+getData(iceMap6,  'data/sea-ice-2005.geojson', null, seaIceStyle);
+getData(iceMap7,  'data/sea-ice-2010.geojson', null, seaIceStyle);
+getData(iceMap8,  'data/sea-ice-2015.geojson', null, seaIceStyle);
+getData(iceMap9,  'data/sea-ice-2020.geojson', null, seaIceStyle);
+getData(iceMap10, 'data/sea-ice-2025.geojson', null, seaIceStyle);
 
 
 
@@ -584,7 +603,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic21pY2hhbHNraSIsImEiOiJjbDl6d2s0enYwMnI1M29uM
 function initMapboxTerrainMap(containerId, centerCoords, zoom = 10) {
   const map = new mapboxgl.Map({
     container: containerId,
-    style: 'mapbox://styles/mapbox/standard-satellite',
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    projection: 'globe',
     center: centerCoords,
     zoom: zoom,
     pitch: 60,

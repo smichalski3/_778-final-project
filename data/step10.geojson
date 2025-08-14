@@ -1,9 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "tern-points-down",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "timestamp": "2017-08-31 13:08:00", "long": -119.288455, "lat": 31.80577658, "end_timest": "2017-09-01 02:28:00", "lat_lower": 23.94062434, "lat_upper": 39.72128934, "long_lower": -127.8292015, "long_upper": -111.5237597, "start_time": "2017-08-31 13:08:00", "sensor_typ": "solar-geolocator", "individual": "Sterna paradisaea", "tag_ident": "BF372", "ind_ident": "1342-16798", "study_name": "MCP Arctic Tern North America", "date": null, "time": null }, "geometry": { "type": "Point", "coordinates": [ -119.288455, 31.80577658 ] } }
-
-]
-}
+{"type": "FeatureCollection", "name": "tern-points-down", "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}, "features": [{"type": "Feature", "properties": {"timestamp": "2017-08-31 13:08:00", "lat": 31.80577658, "long": -119.288455}, "geometry": {"type": "Point", "coordinates": [-119.288455, 31.80577658]}}]}
