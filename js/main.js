@@ -390,14 +390,15 @@ tileMaps.forEach(function(map) {
 // tern points down styling 
 function styleTernPointsDown(feature) {
   return {
-    radius: 4,
-    fillColor: "white",
-    color: "red",
+    radius: 3,
+    fillColor: "#34547e",
+    color: "#40699e",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.9
   };
 }
+
 
 // climate zone polygon styling 
 function styleClimateZone(feature) {
@@ -437,8 +438,8 @@ function styleClimateZone(feature) {
 
   return {
     fillColor: colorMap[dn] || '#cccccc',
-    color: '#333',
-    weight: 1,
+    color: '#4b4b4b',
+    weight: 0.5,
     fillOpacity: 0.6
   };
 }
@@ -446,9 +447,9 @@ function styleClimateZone(feature) {
 // tern points up styling 
 function styleTernPointsUp(feature) {
   return {
-    radius: 4,
-    fillColor: "red",
-    color: "white",
+    radius: 3,
+    fillColor: "#34547e",
+    color: "#40699e",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.9
@@ -508,9 +509,9 @@ function styleStepPoints(feature) {
 // Load data layers onto the maps
 // style breeding range layer
 getData(breedingMap, 'data/breeding-range.geojson', null, {
-  color: "#1f78b4",          // outline color
+  color: "none",          // outline color
   weight: 2,                 // outline thickness
-  fillColor: "#444",      // fill color
+  fillColor: "#6db277",      // fill color
   fillOpacity: 1           // fill transparency
 });
 
@@ -522,9 +523,9 @@ getData(climateMap, 'data/climate-zones.geojson', null, styleClimateZone);
 
 // style non breeding range layer
 getData(nonBreedingMap, 'data/non-breeding-range.geojson', null, {
-  color: "#1f78b4",          // outline color
+  color: "#none",          // outline color
   weight: 2,                 // outline thickness
-  fillColor: "#444",      // fill color
+  fillColor: "#6db277",      // fill color
   fillOpacity: 1           // fill transparency
 });
 
@@ -533,9 +534,9 @@ getData(points2Map, 'data/tern-points-up.geojson', null, styleTernPointsUp);
 
 // style sea ice layer 
 getData(iceMap, 'data/sea-ice-trace.geojson', null, {
-  color: "#1f78b4",          // outline color
+  color: "none",          // outline color
   weight: 2,                 // outline thickness
-  fillColor: "#444",      // fill color
+  fillColor: "#8e8e8e",      // fill color
   fillOpacity: 1           // fill transparency
 });
 
