@@ -72,13 +72,14 @@ var points2Map = L.map('points2Map', {
 });
 
 var stepMap1 = L.map('stepMap1', {
-  center: [0, 0],
-  zoom: 2,
+  center: [55.0, -145.0],  // center over southeast Alaska area
+  zoom: 4.5,               
   maxZoom: 18,
   minZoom: 1,
   scrollWheelZoom: false,
   zoomControl: true
 });
+
 
 var stepMap2 = L.map('stepMap2', {
   center: [46.5, -125], // around WA/OR coast 
@@ -457,12 +458,17 @@ function styleTernPointsUp(feature) {
 }
 
 
-// Only bind popups on climateMap and stepMap[1-21]
+// GET DATA FUNCTION - Only bind popups on climateMap and stepMap[1-21], with custom classes
 function getData(map, url, iconUrl, customStyle) {
-  // helper: which maps should have popups?
   function allowPopupFor(m) {
     const id = m && m._container && m._container.id;
     return id === 'climateMap' || /^stepMap\d+$/.test(id);
+  }
+  function popupClassFor(m) {
+    const id = m && m._container && m._container.id;
+    if (id === 'climateMap') return 'popup-climate';
+    if (/^stepMap\d+$/.test(id)) return 'popup-step';
+    return '';
   }
 
   fetch(url)
@@ -491,23 +497,32 @@ function getData(map, url, iconUrl, customStyle) {
         },
         onEachFeature: allowPopupFor(map)
           ? function (feature, layer) {
+              // Simple default content — customize if you want a title/ordering
               let html = "";
-              for (let property in feature.properties) {
-                html += `<p><strong>${property}</strong>: ${feature.properties[property]}</p>`;
+              for (let k in feature.properties) {
+                html += `<p><strong>${k}</strong>: ${feature.properties[k]}</p>`;
               }
-              if (html) layer.bindPopup(html);
+              if (html) {
+                layer.bindPopup(html, {
+                  className: popupClassFor(map),
+                  maxWidth: 320,
+                  autoPanPaddingTopLeft: [20, 20],
+                  autoPanPaddingBottomRight: [20, 20]
+                });
+              }
             }
           : undefined
       }).addTo(map);
     })
     .catch(error => console.error(`Error loading ${url}:`, error));
 }
+  
 
 
 // tern steps points style 
 function styleStepPoints(feature) {
   return {
-    radius: 4,
+    radius: 6,
     fillColor: "#34547e",
     color: "#40699e",
     weight: 1,
@@ -645,7 +660,7 @@ function initMapboxTerrainMap(containerId, centerCoords, zoom = 10) {
 initMapboxTerrainMap('glMapAlaska', [-166.527, 53.83], 13);
 initMapboxTerrainMap('glMapOregon', [-124.29, 40.22], 14);
 initMapboxTerrainMap('glMapEcuador', [-78.55, -0.14], 13);
-initMapboxTerrainMap('glMapAntarctica', [-63.0333, -65.4], 7);
+initMapboxTerrainMap('glMapAntarctica', [-63.0333, -65.4], 6);
 
 
 
@@ -718,18 +733,18 @@ document.addEventListener('DOMContentLoaded', function () {
 // Chart.js: Migration distances by species
 document.addEventListener('DOMContentLoaded', function () {
   const chartCanvas = document.getElementById('migrationChart');
-  if (!chartCanvas) return;  // Exit if chart container doesn't exist
+  if (!chartCanvas) return;
 
   const ctx = chartCanvas.getContext('2d');
 
   const chart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Arctic Tern', 'Wildebeest', 'Monarch Butterfly', 'Salmon', 'Gray Whale'],
+      labels: ['Arctic Tern', 'Great White Shark', 'Leatherback Sea Turtle', 'Monarch Butterfly', 'Wildebeest'],
       datasets: [{
         label: 'Annual Migration Distance (miles)',
-        data: [44000, 1000, 3000, 2500, 10000],
-        backgroundColor: 'rgba(93, 173, 226, 0.6)',
+        data: [44000, 12400, 7400, 5000, 1000],
+        backgroundColor: 'rgba(177, 224, 255, 0.6)',
         borderColor: 'rgba(93, 173, 226, 1)',
         borderWidth: 1
       }]
@@ -737,20 +752,59 @@ document.addEventListener('DOMContentLoaded', function () {
     options: {
       responsive: true,
       plugins: {
+        legend: {
+          labels: {
+            color: '#333', // Legend text color
+            font: {
+              size: 14,    // Legend font size
+              family: 'bell',
+            }
+          }
+        },
         tooltip: {
           callbacks: {
             label: function(context) {
               return `${context.dataset.label}: ${context.formattedValue} mi`;
             }
-          }
+          },
+          titleFont: { size: 14, weight: 'bold' },
+          bodyFont: { size: 12 }
         }
       },
       scales: {
+        x: {
+          ticks: {
+            color: '#333', // X-axis label color
+            font: {
+              size: 13,
+              family: 'bell'
+            }
+          },
+          grid: {
+            display: false // Removes vertical grid lines
+          }
+        },
         y: {
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Miles'
+            text: 'Miles',
+            color: '#333',
+            font: {
+              size: 14,
+              family: 'bell'
+            }
+          },
+          ticks: {
+            color: '#333',
+            font: {
+              size: 12,
+              family: 'bell'
+            }
+          },
+          grid: {
+            color: 'rgba(200, 200, 200, 0.3)', // Light gray horizontal lines
+            borderDash: [4, 4] // Dashed horizontal lines (optional)
           }
         }
       }

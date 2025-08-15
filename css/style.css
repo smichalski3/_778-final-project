@@ -24,7 +24,7 @@
 
 .author {
   font-family: bell;
-  color: rgb(184, 184, 184);
+  color: rgb(255, 255, 255);
 }
 
 /* arrow  */
@@ -61,6 +61,7 @@
   to { opacity: 0; visibility: hidden; }
 }
 
+/* migration chart style*/ 
 #migrationChart {
   max-width: 700px;
   margin: 2rem auto;
@@ -119,6 +120,59 @@
   border-color: #007acc;
   font-weight: 600;
 }
+
+
+
+/* POP UP STYLING*/
+.leaflet-popup-content {
+  margin: 10px 12px;
+  font-family: bell;
+  line-height: 1.35;
+}
+.leaflet-popup-content p { margin: 0 0 6px; }
+.leaflet-popup-tip { opacity: 0.95; }
+
+/* Climate popup look */
+.popup-climate .leaflet-popup-content-wrapper {
+  background: #f4fbff;                 /* soft ice-blue */
+  border: 1px solid #b9e2ff;           /* light blue border */
+  box-shadow: 0 6px 18px rgba(0, 60, 120, 0.15);
+  border-radius: 12px;
+}
+.popup-climate .leaflet-popup-tip {
+  background: #f4fbff;
+  border: 1px solid #b9e2ff;
+}
+.popup-climate .leaflet-popup-content {
+  color: #2b4a63;
+  font-size: 14px;
+}
+.popup-climate .leaflet-popup-close-button {
+  color: #2b4a63;
+}
+
+/* Step popup look (same as climate) */
+.popup-step .leaflet-popup-content-wrapper {
+  background: #f4fbff;                 /* soft ice-blue */
+  border: 1px solid #b9e2ff;           /* light blue border */
+  box-shadow: 0 6px 18px rgba(0, 60, 120, 0.15);
+  border-radius: 12px;
+}
+.popup-step .leaflet-popup-tip {
+  background: #f4fbff;
+  border: 1px solid #b9e2ff;
+}
+.popup-step .leaflet-popup-content {
+  color: #2b4a63;
+  font-size: 14px;
+}
+.popup-step .leaflet-popup-close-button {
+  color: #2b4a63;
+}
+
+
+
+
 
 
 
