@@ -754,34 +754,47 @@ document.addEventListener('DOMContentLoaded', function () {
       plugins: {
         legend: {
           labels: {
-            color: '#333', // Legend text color
+            color: '#333',
             font: {
-              size: 14,    // Legend font size
-              family: 'bell',
+              size: 14,
+              family: 'bell'
             }
           }
         },
         tooltip: {
+          backgroundColor: '#f4fbff',          // soft ice-blue like climate popup
+          borderColor: '#b9e2ff',
+          borderWidth: 1,
+          cornerRadius: 12,                   // rounded corners
+          titleColor: '#2b4a63',
+          bodyColor: '#2b4a63',
+          titleFont: {
+            size: 14,
+            weight: 'bold',
+            family: 'bell'
+          },
+          bodyFont: {
+            size: 12,
+            family: 'bell'
+          },
           callbacks: {
             label: function(context) {
               return `${context.dataset.label}: ${context.formattedValue} mi`;
             }
-          },
-          titleFont: { size: 14, weight: 'bold' },
-          bodyFont: { size: 12 }
+          }
         }
       },
       scales: {
         x: {
           ticks: {
-            color: '#333', // X-axis label color
+            color: '#333',
             font: {
               size: 13,
               family: 'bell'
             }
           },
           grid: {
-            display: false // Removes vertical grid lines
+            display: false
           }
         },
         y: {
@@ -803,12 +816,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           },
           grid: {
-            color: 'rgba(200, 200, 200, 0.3)', // Light gray horizontal lines
-            borderDash: [4, 4] // Dashed horizontal lines (optional)
+            color: 'rgba(200, 200, 200, 0.3)',
+            borderDash: [4, 4]
           }
         }
       }
     }
   });
 });
-
