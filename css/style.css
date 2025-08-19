@@ -171,33 +171,52 @@
 }
 
 
+/* FONT STYLES */
 
+.text-1 {
+  color: #5f85a6;
+  font-family: bell;
+  font-size: 26px;
+}
 
+.header-open {
+  color: #5f85a6;
+  font-family: bell;
+  font-size: 40px;
+}
 
+.caption {
+  color: #84a3bf;
+  font-family: bell;
+  font-size: 14px;
+  font-style: italic;
+}
 
+.header {
+  color: #527695;
+  font-family: alpine;
+  font-size: 80px;
+}
 
+.text-2 {
+  color: #4a6c8b;
+  font-family: bell;
+  font-size: 24px;
+}
 
-
-
-
-
-
-
-
-
-body {
-  margin: 0;
-  padding: 0;
+.text-3 {
+  color: #4a6c8b;
+  font-family: bell;
+  font-size: 30px;
 }
 
 
-a {
-  color: rgb(144, 64, 108);
+
+.credits {
+  color: red;
+  position: center;
 }
 
-a:hover {
-  color: rgb(248, 178, 217);
-}
 
 
 
