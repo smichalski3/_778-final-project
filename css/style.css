@@ -211,13 +211,17 @@
 }
 
 
-
-.credits {
-  color: red;
-  position: center;
+.credits-header {
+  color: #527695;
+  font-family: alpine;
+  font-size: 50px;
 }
 
-
+.creds {
+  color: #84a3bf;
+  font-family: bell;
+  font-size: 18px;
+}
 
 
 .step {
