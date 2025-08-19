@@ -104,7 +104,8 @@
   border: 1px solid #ccc;
   padding: 8px 14px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: bell;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -115,9 +116,9 @@
 }
 
 .windy-toggle-btn.active {
-  background-color: #007acc;
+  background-color: #1b6695;
   color: white;
-  border-color: #007acc;
+  border-color: #1b6695;
   font-weight: 600;
 }
 
@@ -224,13 +225,6 @@
 }
 
 
-.step {
-  margin-bottom: 60px;
-  padding: 20px;
-  border-left: 4px solid rgba(144, 64, 108, 0.3);
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 6px;
-}
 
 
 
